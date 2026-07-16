@@ -1,0 +1,1068 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="وب‌سایت معرفی شرکت کارنیکا پلاست ایرانیان"
+    />
+    <title>کارنیکا پلاست ایرانیان</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: "#071d3c",
+              navy2: "#0b2d59",
+              brand: "#e31d2b",
+              paper: "#f7f7f6",
+            },
+            fontFamily: {
+              sans: ["Vazirmatn", "Tahoma", "Arial", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 20px 55px rgba(4, 25, 55, .12)",
+              card: "0 12px 35px rgba(7, 29, 60, .10)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Vazirmatn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        overflow-x: hidden;
+      }
+      .container-site {
+        width: calc(100% - 32px);
+        max-width: 1280px;
+        margin-inline: auto;
+      }
+
+      @media (min-width: 1536px) {
+        .container-site {
+          max-width: 1500px;
+        }
+      }
+
+      .section-title::before {
+        content: "";
+        display: inline-block;
+        width: 28px;
+        height: 3px;
+        border-radius: 999px;
+        background: #e31d2b;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+
+      .product-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 28%,
+          rgba(4, 20, 43, 0.9) 100%
+        );
+        z-index: 1;
+      }
+
+      .product-card img {
+        transition: transform 0.6s ease;
+      }
+      .product-card:hover img {
+        transform: scale(1.06);
+      }
+
+      .nav-link.active::after,
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .nav-link::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        margin-top: 9px;
+        background: #e31d2b;
+        transition: width 0.25s ease;
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .swiper-pagination-bullet {
+        background: #c7cfdb;
+        opacity: 1;
+      }
+      .swiper-pagination-bullet-active {
+        background: #e31d2b;
+      }
+
+      @media (max-width: 1024px) {
+        .hero-slide::after {
+          bottom: -115px;
+        }
+        .hero-slide::before {
+          bottom: -133px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero-slide::after,
+        .hero-slide::before {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="font-sans text-slate-800 antialiased">
+    <!-- Header -->
+    <header
+      id="siteHeader"
+      class="sticky inset-x-0 top-0 z-50 bg-[#f6f7f8] bg-navy text-white transition-all duration-300"
+    >
+      <div
+        class="container-site flex h-20 items-center justify-between gap-6 lg:h-24"
+      >
+        <a
+          href="#home"
+          class="relative z-50 flex items-center"
+          aria-label="کارنیکا"
+        >
+          <img
+            src="assets/images/karnika-logo-white.png"
+            alt="کارنیکا"
+            class="h-11 w-auto lg:h-14"
+          />
+        </a>
+
+        <nav class="hidden items-center gap-8 text-sm font-semibold lg:flex">
+          <a class="nav-link active" href="#home">خانه</a>
+          <a class="nav-link" href="#products">محصولات</a>
+          <a class="nav-link" href="#about">درباره ما</a>
+          <a class="nav-link" href="#news">اخبار و رسانه</a>
+          <a class="nav-link" href="#contact">تماس با ما</a>
+        </nav>
+
+        <div class="hidden items-center gap-3 lg:flex">
+          <button
+            type="button"
+            aria-label="جستجو"
+            class="grid size-10 place-items-center rounded-xl border border-white/10 hover:bg-white/10"
+          >
+            <i data-lucide="search" class="size-4"></i>
+          </button>
+          <a
+            href="#contact"
+            class="rounded-xl border border-white/40 px-5 py-3 text-xs font-bold transition hover:border-brand hover:bg-brand"
+          >
+            درخواست همکاری
+          </a>
+        </div>
+
+        <button
+          id="menuBtn"
+          type="button"
+          class="relative z-50 grid size-11 place-items-center rounded-xl border border-white/15 lg:hidden"
+          aria-label="باز کردن منو"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+
+      <div
+        id="mobileMenu"
+        class="hidden border-t border-white/10 bg-navy px-4 pb-6 pt-4 lg:hidden"
+      >
+        <nav class="container-site grid gap-2 text-sm font-bold">
+          <a class="rounded-xl px-4 py-3 hover:bg-white/10" href="#home"
+            >خانه</a
+          >
+          <a class="rounded-xl px-4 py-3 hover:bg-white/10" href="#products"
+            >محصولات</a
+          >
+          <a class="rounded-xl px-4 py-3 hover:bg-white/10" href="#about"
+            >درباره ما</a
+          >
+          <a class="rounded-xl px-4 py-3 hover:bg-white/10" href="#news"
+            >اخبار و رسانه</a
+          >
+          <a class="rounded-xl px-4 py-3 hover:bg-white/10" href="#contact"
+            >تماس با ما</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="home" class="bg-navy">
+        <div class="swiper heroSwiper h-[650px] lg:h-[580px]">
+          <div class="swiper-wrapper">
+            <article
+              class="swiper-slide hero-slide relative overflow-hidden rounded-tl-[44px] sm:rounded-tl-[70px]"
+            >
+              <img
+                src="assets/images/hero/hero-2.avif"
+                alt="تولید محصولات پلیمری"
+                class="absolute inset-0 h-full w-full object-cover"
+              />
+
+              <div
+                class="max-w-7xl mx-auto relative z-10 flex h-full items-center"
+              >
+                <div class="ml-auto max-w-2xl text-right text-white">
+                  <p class="mb-4 text-sm font-bold text-red-300">
+                    راهکارهای پلیمری کارآمد
+                  </p>
+                  <h2
+                    class="text-4xl font-black leading-[1.5] sm:text-5xl lg:text-6xl"
+                  >
+                    تولید دقیق،<br />عملکرد مطمئن
+                  </h2>
+                  <p
+                    class="mt-6 max-w-xl text-sm leading-8 text-white/75 sm:text-base"
+                  >
+                    محصولاتی متناسب با نیاز صنایع، فروشگاه‌ها و بخش کشاورزی، با
+                    امکان تولید اختصاصی در ابعاد و ضخامت‌های مختلف.
+                  </p>
+                  <a
+                    href="#products"
+                    class="mt-8 inline-flex items-center gap-3 rounded-xl bg-brand px-5 py-3 text-sm font-bold transition hover:bg-red-700"
+                  >
+                    مشاهده محصولات
+                    <i data-lucide="arrow-left" class="size-4"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="swiper-slide hero-slide relative overflow-hidden rounded-tl-[44px] sm:rounded-tl-[70px]"
+            >
+              <img
+                src="assets/images/hero/hero-1.avif"
+                alt="رول نایلون صنعتی"
+                class="absolute h-full w-full object-cover"
+              />
+
+              <div
+                class="max-w-7xl mx-auto relative z-10 flex h-full items-center"
+              >
+                <div class="ml-auto max-w-2xl text-right text-white">
+                  <p class="mb-4 text-sm font-bold text-red-300">
+                    کارنیکا پلاست ایرانیان
+                  </p>
+                  <h1
+                    class="text-4xl font-black leading-[1.5] sm:text-5xl lg:text-6xl"
+                  >
+                    کیفیت، تعهد،<br />اعتماد ماندگار
+                  </h1>
+                  <p
+                    class="mt-6 max-w-xl text-sm leading-8 text-white/75 sm:text-base"
+                  >
+                    تولیدکننده انواع نایلون و نایلکس خانگی، صنعتی و کشاورزی با
+                    تکیه بر تجربه، فناوری و کنترل دقیق کیفیت.
+                  </p>
+                  <a
+                    href="#about"
+                    class="mt-8 inline-flex items-center gap-3 rounded-xl bg-brand px-5 py-3 text-sm font-bold transition hover:bg-red-700"
+                  >
+                    درباره کارنیکا بیشتر بدانید
+                    <i data-lucide="arrow-left" class="size-4"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="swiper-slide hero-slide relative overflow-hidden rounded-tl-[44px] sm:rounded-tl-[70px]"
+            >
+              <img
+                src="assets/images/hero/hero-3.avif"
+                alt="نایلون گلخانه ای"
+                class="absolute inset-0 h-full w-full object-cover"
+              />
+
+              <div
+                class="max-w-7xl mx-auto relative z-10 flex h-full items-center"
+              >
+                <div class="ml-auto max-w-2xl text-right text-white">
+                  <p class="mb-4 text-sm font-bold text-red-300">
+                    پوشش‌های تخصصی کشاورزی
+                  </p>
+                  <h2
+                    class="text-4xl font-black leading-[1.5] sm:text-5xl lg:text-6xl"
+                  >
+                    نایلون گلخانه‌ای<br />
+                    برای رشد بهتر محصولات
+                  </h2>
+                  <p
+                    class="mt-6 max-w-xl text-sm leading-8 text-white/75 sm:text-base"
+                  >
+                    تولید نایلون‌های گلخانه‌ای با مقاومت بالا در برابر نور
+                    خورشید، رطوبت و شرایط محیطی، مناسب برای انواع گلخانه‌های
+                    صنعتی و کشاورزی با امکان تولید در عرض، ضخامت و مشخصات
+                    سفارشی.
+                  </p>
+                  <a
+                    href="#products"
+                    class="mt-8 inline-flex items-center gap-3 rounded-xl bg-brand px-5 py-3 text-sm font-bold transition hover:bg-red-700"
+                  >
+                    مشاهده محصولات
+                    <i data-lucide="arrow-left" class="size-4"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div
+            class="absolute bottom-12 left-1/2 z-20 -translate-x-1/2 sm:bottom-16"
+          >
+            <div class="swiper-pagination !static"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products -->
+
+      <section id="products" class="relative bg-white py-20 lg:py-16">
+        <div class="container-site">
+          <div class="mb-10 max-w-2xl reveal">
+            <div class="flex gap-1 items-center mb-3">
+              <span class="h-[2px] w-2 bg-brand sm:w-3"></span>
+              <p class="text-sm font-extrabold text-brand">محصولات ما</p>
+            </div>
+            <h2 class="text-3xl font-black text-navy sm:text-4xl">
+              چه محصولاتی تولید می‌کنیم؟
+            </h2>
+            <p class="mt-5 text-sm leading-8 text-slate-500 sm:text-base">
+              کارنیکا انواع نایلون و نایلکس را برای کاربردهای خانگی، صنعتی و
+              کشاورزی با کیفیت یکنواخت و قابلیت تولید سفارشی عرضه می‌کند.
+            </p>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <article
+              class="product-card reveal relative min-h-[310px] overflow-hidden rounded-2xl shadow-card"
+            >
+              <img
+                src="assets/images/categories/category-4.avif"
+                class="absolute inset-0 h-full w-full object-cover"
+                alt="محصولات خانگی"
+              />
+              <div
+                class="absolute inset-0 z-10 flex flex-col items-center justify-end p-6 text-center text-white"
+              >
+                <i data-lucide="home" class="mb-5 size-9"></i>
+                <h3 class="text-xl font-black">محصولات خانگی</h3>
+                <p class="mt-3 text-xs leading-6 text-white/70">
+                  سفره، کیسه زباله و محصولات مصرفی خانه
+                </p>
+              </div>
+            </article>
+            <article
+              class="product-card reveal relative min-h-[310px] overflow-hidden rounded-2xl shadow-card"
+            >
+              <img
+                src="assets/images/categories/category-3.avif"
+                class="absolute inset-0 h-full w-full object-cover"
+                alt="کیسه‌های نایلکسی"
+              />
+              <div
+                class="absolute inset-0 z-10 flex flex-col items-center justify-end p-6 text-center text-white"
+              >
+                <i data-lucide="shopping-bag" class="mb-5 size-9"></i>
+                <h3 class="text-xl font-black">کیسه‌های نایلکسی</h3>
+                <p class="mt-3 text-xs leading-6 text-white/70">
+                  کیسه فروشگاهی و بسته‌بندی در ابعاد مختلف
+                </p>
+              </div>
+            </article>
+            <article
+              class="product-card reveal relative min-h-[310px] overflow-hidden rounded-2xl shadow-card"
+            >
+              <img
+                src="assets/images/categories/category-2.avif"
+                class="absolute inset-0 h-full w-full object-cover"
+                alt="محصولات صنعتی"
+              />
+              <div
+                class="absolute inset-0 z-10 flex flex-col items-center justify-end p-6 text-center text-white"
+              >
+                <i data-lucide="factory" class="mb-5 size-9"></i>
+                <h3 class="text-xl font-black">محصولات صنعتی</h3>
+                <p class="mt-3 text-xs leading-6 text-white/70">
+                  نایلون صنعتی، بسته‌بندی و پوشش‌های محافظ
+                </p>
+              </div>
+            </article>
+            <article
+              class="product-card reveal relative min-h-[310px] overflow-hidden rounded-2xl shadow-card"
+            >
+              <img
+                src="assets/images/categories/category-1.avif"
+                class="absolute inset-0 h-full w-full object-cover"
+                alt="محصولات کشاورزی"
+              />
+              <div
+                class="absolute inset-0 z-10 flex flex-col items-center justify-end p-6 text-center text-white"
+              >
+                <i data-lucide="sprout" class="mb-5 size-9"></i>
+                <h3 class="text-xl font-black">محصولات کشاورزی</h3>
+                <p class="mt-3 text-xs leading-6 text-white/70">
+                  نایلون گلخانه‌ای و پوشش‌های تخصصی کشاورزی
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="bg-white py-16 lg:py-24">
+        <div class="container-site grid items-center gap-12 lg:grid-cols-2">
+          <div class="reveal">
+            <div class="flex gap-1 items-center mb-3">
+              <span class="h-[2px] w-2 bg-brand sm:w-3"></span>
+              <p class="text-sm font-extrabold text-brand">درباره ما</p>
+            </div>
+            <h2 class="text-3xl font-black text-navy sm:text-4xl">
+              کارنیکا پلاست ایرانیان
+            </h2>
+            <p class="mt-6 text-sm leading-8 text-slate-500 sm:text-base">
+              کارنیکا از سال ۱۳۹۶ با تمرکز بر تولید محصولات پلیمری باکیفیت
+              فعالیت خود را آغاز کرد. هدف ما ارائه محصولاتی قابل‌اعتماد، یکنواخت
+              و متناسب با نیاز بازار ایران است.
+            </p>
+
+            <div class="mt-8 grid gap-5 sm:grid-cols-2">
+              <div class="flex gap-4">
+                <div
+                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-red-50 text-brand"
+                >
+                  <i data-lucide="badge-check"></i>
+                </div>
+                <div>
+                  <h3 class="font-black text-navy">کنترل کیفیت مستمر</h3>
+                  <p class="mt-2 text-xs leading-6 text-slate-500">
+                    کنترل مواد اولیه و محصول نهایی
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div
+                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-red-50 text-brand"
+                >
+                  <i data-lucide="settings-2"></i>
+                </div>
+                <div>
+                  <h3 class="font-black text-navy">تولید سفارشی</h3>
+                  <p class="mt-2 text-xs leading-6 text-slate-500">
+                    ابعاد، ضخامت و فرمول اختصاصی
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div
+                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-red-50 text-brand"
+                >
+                  <i data-lucide="users"></i>
+                </div>
+                <div>
+                  <h3 class="font-black text-navy">تیم متخصص</h3>
+                  <p class="mt-2 text-xs leading-6 text-slate-500">
+                    تجربه صنعتی و پشتیبانی حرفه‌ای
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div
+                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-red-50 text-brand"
+                >
+                  <i data-lucide="truck"></i>
+                </div>
+                <div>
+                  <h3 class="font-black text-navy">ارسال گسترده</h3>
+                  <p class="mt-2 text-xs leading-6 text-slate-500">
+                    تأمین سفارش مشتریان سراسر کشور
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="#contact"
+              class="mt-8 inline-flex items-center gap-2 rounded-xl bg-navy px-6 py-3 text-sm font-bold text-white hover:bg-navy2"
+            >
+              درباره ما بیشتر بدانید
+              <i data-lucide="arrow-left" class="size-4"></i>
+            </a>
+          </div>
+
+          <div class="relative reveal">
+            <div
+              class="absolute -bottom-5 -left-5 h-[92%] w-[88%] rounded-2xl bg-navy"
+            ></div>
+            <div
+              class="absolute -left-5 top-8 h-52 w-7 rounded-l-xl bg-brand"
+            ></div>
+            <img
+              src="assets/images/about/about.avif"
+              alt="کارخانه کارنیکا"
+              class="relative z-10 aspect-[5/3] w-full rounded-2xl object-cover shadow-soft"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- News -->
+      <section id="news" class="bg-white py-16 lg:py-24">
+        <div
+          class="container-site rounded-3xl bg-navy px-5 py-10 text-white shadow-soft sm:px-8 lg:px-12"
+        >
+          <div class="mb-8 flex items-end justify-between gap-4">
+            <div>
+              <div class="flex gap-1 items-center mb-3">
+                <span class="h-[2px] w-2 bg-red-300 sm:w-3"></span>
+                <p class="text-sm font-extrabold text-red-300">رسانه کارنیکا</p>
+              </div>
+              <h2 class="text-2xl font-black sm:text-3xl">
+                اخبار و اطلاعیه‌ها
+              </h2>
+            </div>
+            <div class="hidden gap-2 sm:flex">
+              <button
+                class="news-prev grid size-10 place-items-center rounded-full bg-white text-navy"
+              >
+                <i data-lucide="chevron-right"></i>
+              </button>
+              <button
+                class="news-next grid size-10 place-items-center rounded-full bg-white text-navy"
+              >
+                <i data-lucide="chevron-left"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="swiper newsSwiper">
+            <div class="swiper-wrapper">
+              <article class="swiper-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80"
+                  class="h-48 w-full rounded-2xl object-cover"
+                  alt=""
+                />
+                <h3 class="mt-5 text-base font-black">
+                  حضور موفق در نمایشگاه ایران پلاست
+                </h3>
+                <p class="mt-3 text-xs leading-6 text-white/60">
+                  گزارشی کوتاه از حضور کارنیکا در رویداد تخصصی صنعت پلاستیک.
+                </p>
+              </article>
+
+              <article class="swiper-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80"
+                  class="h-48 w-full rounded-2xl object-cover"
+                  alt=""
+                />
+                <h3 class="mt-5 text-base font-black">
+                  توسعه خط تولید نایلون صنعتی
+                </h3>
+                <p class="mt-3 text-xs leading-6 text-white/60">
+                  افزایش ظرفیت تولید و بهبود پایداری کیفیت محصولات.
+                </p>
+              </article>
+
+              <article class="swiper-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=900&q=80"
+                  class="h-48 w-full rounded-2xl object-cover"
+                  alt=""
+                />
+                <h3 class="mt-5 text-base font-black">
+                  تعهد ما به کیفیت در مواد اولیه
+                </h3>
+                <p class="mt-3 text-xs leading-6 text-white/60">
+                  چرا انتخاب مواد اولیه مناسب در کیفیت نهایی محصول تعیین‌کننده
+                  است.
+                </p>
+              </article>
+
+              <article class="swiper-slide">
+                <img
+                  src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80"
+                  class="h-48 w-full rounded-2xl object-cover"
+                  alt=""
+                />
+                <h3 class="mt-5 text-base font-black">
+                  بهبود فرآیندهای کنترل کیفیت
+                </h3>
+                <p class="mt-3 text-xs leading-6 text-white/60">
+                  نگاهی به استانداردهای کنترل محصول در کارخانه کارنیکا.
+                </p>
+              </article>
+            </div>
+            <div class="swiper-pagination !relative !bottom-0 mt-8"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Event -->
+      <section class="py-12">
+        <div
+          class="container-site grid gap-6 overflow-hidden rounded-3xl border border-slate-200 bg-[#fafafa] p-6 lg:grid-cols-2 lg:p-8"
+        >
+          <!-- Image -->
+          <div class="overflow-hidden rounded-2xl">
+            <img
+              src="assets/images/event/event.avif"
+              class="aspect-[5/3] object-cover"
+              alt="نمایشگاه"
+            />
+          </div>
+
+          <!-- Content -->
+          <div class="flex flex-col justify-center rounded-2xl p-8 lg:p-12">
+            <div class="flex gap-1 items-center mb-3">
+              <span class="h-[2px] w-2 bg-brand sm:w-3"></span>
+              <p class="text-sm font-extrabold text-brand">رویداد مهم</p>
+            </div>
+
+            <h2 class="mt-3 text-3xl font-black leading-relaxed text-navy">
+              حضور در نمایشگاه ایران پلاست ۱۴۰۳
+            </h2>
+
+            <p class="mt-5 text-sm leading-8 text-slate-500">
+              کارنیکا پلاست ایرانیان در جدیدترین دوره نمایشگاه ایران پلاست،
+              تازه‌ترین محصولات و توانمندی‌های تولیدی خود را معرفی کرد.
+            </p>
+
+            <div class="mt-5 space-y-2 text-sm text-slate-600">
+              <p class="flex items-center gap-2">
+                <i data-lucide="calendar-days" class="size-4 text-brand"></i>
+                ۱۸ تا ۲۱ شهریور ۱۴۰۳
+              </p>
+
+              <p class="flex items-center gap-2">
+                <i data-lucide="map-pin" class="size-4 text-brand"></i>
+                نمایشگاه بین‌المللی تهران
+              </p>
+            </div>
+
+            <a
+              href="#"
+              class="mt-7 ms-auto inline-flex w-fit items-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-bold text-white transition hover:bg-red-700"
+            >
+              مشاهده جزئیات
+              <i data-lucide="arrow-left" class="size-4"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Awards -->
+      <section class="bg-white py-16">
+        <div class="container-site">
+          <div class="mb-10 text-right">
+            <div class="flex gap-1 items-center mb-3">
+              <span class="h-[2px] w-2 bg-brand sm:w-3"></span>
+              <p class="text-sm font-extrabold text-brand">افتخارات</p>
+            </div>
+            <h2 class="mt-3 text-3xl font-black text-navy">
+              افتخارات و گواهینامه‌ها
+            </h2>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div
+              class="rounded-2xl border border-slate-100 bg-[#fafafa] p-7 text-center"
+            >
+              <i data-lucide="award" class="mx-auto size-12 text-navy"></i>
+              <h3 class="mt-5 font-black text-navy">واحد صنعتی نمونه</h3>
+              <p class="mt-2 text-xs text-slate-500">استانی و شهرستانی</p>
+            </div>
+            <div
+              class="rounded-2xl border border-slate-100 bg-[#fafafa] p-7 text-center"
+            >
+              <i
+                data-lucide="badge-check"
+                class="mx-auto size-12 text-navy"
+              ></i>
+              <h3 class="mt-5 font-black text-navy">گواهینامه ISO 9001</h3>
+              <p class="mt-2 text-xs text-slate-500">مدیریت کیفیت</p>
+            </div>
+            <div
+              class="rounded-2xl border border-slate-100 bg-[#fafafa] p-7 text-center"
+            >
+              <i
+                data-lucide="clipboard-check"
+                class="mx-auto size-12 text-navy"
+              ></i>
+              <h3 class="mt-5 font-black text-navy">گواهینامه CE</h3>
+              <p class="mt-2 text-xs text-slate-500">استاندارد محصول</p>
+            </div>
+            <div
+              class="rounded-2xl border border-slate-100 bg-[#fafafa] p-7 text-center"
+            >
+              <i
+                data-lucide="shield-check"
+                class="mx-auto size-12 text-navy"
+              ></i>
+              <h3 class="mt-5 font-black text-navy">نشان استاندارد ملی</h3>
+              <p class="mt-2 text-xs text-slate-500">مطابقت با الزامات تولید</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="bg-white py-8">
+        <div
+          class="container-site rounded-2xl bg-navy px-5 py-10 text-white sm:px-8"
+        >
+          <div class="mb-10 flex gap-2 items-center justify-center">
+            <span class="h-[2px] w-2 bg-brand sm:w-3"></span>
+            <h2 class="text-xl font-black">کارنیکا در یک نگاه</h2>
+            <span class="h-[2px] w-2 bg-brand sm:w-3"></span>
+          </div>
+          <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="text-center lg:border-l lg:border-white/15">
+              <i data-lucide="factory" class="mx-auto size-9 text-white/80"></i>
+              <strong
+                class="counter mt-4 block text-3xl font-black"
+                data-target="30000"
+                >0</strong
+              >
+              <span class="mt-2 block text-xs text-white/60"
+                >تن تولید سالانه</span
+              >
+            </div>
+            <div class="text-center lg:border-l lg:border-white/15">
+              <i data-lucide="boxes" class="mx-auto size-9 text-white/80"></i>
+              <strong
+                class="counter mt-4 block text-3xl font-black"
+                data-target="20"
+                >0</strong
+              >
+              <span class="mt-2 block text-xs text-white/60"
+                >خط تولید فعال</span
+              >
+            </div>
+            <div class="text-center lg:border-l lg:border-white/15">
+              <i data-lucide="users" class="mx-auto size-9 text-white/80"></i>
+              <strong
+                class="counter mt-4 block text-3xl font-black"
+                data-target="250"
+                >0</strong
+              >
+              <span class="mt-2 block text-xs text-white/60">مشتری فعال</span>
+            </div>
+            <div class="text-center">
+              <i data-lucide="globe-2" class="mx-auto size-9 text-white/80"></i>
+              <strong
+                class="counter mt-4 block text-3xl font-black"
+                data-target="15"
+                >0</strong
+              >
+              <span class="mt-2 block text-xs text-white/60">کشور صادراتی</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Articles -->
+      <section class="bg-navy">
+        <div class="bg-white rounded-br-[44px] py-20 sm:rounded-br-[70px]">
+          <div class="container-site">
+            <div class="mb-8 flex items-end justify-between">
+              <div>
+                <div class="flex gap-1 items-center mb-3">
+                  <span class="h-[2px] w-2 bg-brand sm:w-3"></span>
+                  <p class="text-sm font-extrabold text-brand">دانش و تجربه</p>
+                </div>
+                <h2 class="mt-3 text-3xl font-black text-navy">مقالات</h2>
+              </div>
+              <div class="flex gap-2">
+                <button
+                  class="article-prev grid size-10 place-items-center rounded-full bg-slate-200 text-navy"
+                >
+                  <i data-lucide="chevron-right"></i>
+                </button>
+                <button
+                  class="article-next grid size-10 place-items-center rounded-full bg-slate-200 text-navy"
+                >
+                  <i data-lucide="chevron-left"></i>
+                </button>
+              </div>
+            </div>
+            <div
+              class="swiper articleSwiper rounded-3xl border border-slate-200 bg-white p-5 shadow-card"
+            >
+              <div class="swiper-wrapper">
+                <article class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80"
+                    class="h-44 w-full rounded-2xl object-cover"
+                    alt=""
+                  />
+                  <h3 class="mt-4 font-black text-navy">
+                    راهنمای خرید نایلون گلخانه‌ای
+                  </h3>
+                  <p class="mt-3 text-xs leading-6 text-slate-500">
+                    نکات مهم در انتخاب ضخامت و نوع نایلون مناسب.
+                  </p>
+
+                  <!-- Meta -->
+                  <div
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-500"
+                  >
+                    <div class="flex items-center gap-4">
+                      <span class="flex items-center gap-1">
+                        <i data-lucide="calendar" class="size-4"></i>
+                        ۲۵ تیر ۱۴۰۵
+                      </span>
+
+                      <span class="flex items-center gap-1">
+                        <i data-lucide="clock-3" class="size-4"></i>
+                        ۵ دقیقه
+                      </span>
+                    </div>
+
+                    <span class="flex items-center gap-1 font-bold text-brand">
+                      مطالعه
+                      <i data-lucide="arrow-left" class="size-4"></i>
+                    </span>
+                  </div>
+                </article>
+                <article class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=900&q=80"
+                    class="h-44 w-full rounded-2xl object-cover"
+                    alt=""
+                  />
+                  <h3 class="mt-4 font-black text-navy">
+                    تفاوت نایلون و نایلکس چیست؟
+                  </h3>
+                  <p class="mt-3 text-xs leading-6 text-slate-500">
+                    بررسی تفاوت مواد، کاربرد و ویژگی‌های فنی.
+                  </p>
+                  <!-- Meta -->
+                  <div
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-500"
+                  >
+                    <div class="flex items-center gap-4">
+                      <span class="flex items-center gap-1">
+                        <i data-lucide="calendar" class="size-4"></i>
+                        ۲۵ تیر ۱۴۰۵
+                      </span>
+
+                      <span class="flex items-center gap-1">
+                        <i data-lucide="clock-3" class="size-4"></i>
+                        ۵ دقیقه
+                      </span>
+                    </div>
+
+                    <span class="flex items-center gap-1 font-bold text-brand">
+                      مطالعه
+                      <i data-lucide="arrow-left" class="size-4"></i>
+                    </span>
+                  </div>
+                </article>
+                <article class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80"
+                    class="h-44 w-full rounded-2xl object-cover"
+                    alt=""
+                  />
+                  <h3 class="mt-4 font-black text-navy">
+                    بسته‌بندی حرفه‌ای در صنعت
+                  </h3>
+                  <p class="mt-3 text-xs leading-6 text-slate-500">
+                    نقش بسته‌بندی مناسب در کاهش آسیب و هزینه.
+                  </p>
+                  <!-- Meta -->
+                  <div
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-500"
+                  >
+                    <div class="flex items-center gap-4">
+                      <span class="flex items-center gap-1">
+                        <i data-lucide="calendar" class="size-4"></i>
+                        ۲۵ تیر ۱۴۰۵
+                      </span>
+
+                      <span class="flex items-center gap-1">
+                        <i data-lucide="clock-3" class="size-4"></i>
+                        ۵ دقیقه
+                      </span>
+                    </div>
+
+                    <span class="flex items-center gap-1 font-bold text-brand">
+                      مطالعه
+                      <i data-lucide="arrow-left" class="size-4"></i>
+                    </span>
+                  </div>
+                </article>
+                <article class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80"
+                    class="h-44 w-full rounded-2xl object-cover"
+                    alt=""
+                  />
+                  <h3 class="mt-4 font-black text-navy">
+                    کنترل کیفیت محصولات پلیمری
+                  </h3>
+                  <p class="mt-3 text-xs leading-6 text-slate-500">
+                    مهم‌ترین شاخص‌های بررسی کیفیت نایلون.
+                  </p>
+                  <!-- Meta -->
+                  <div
+                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-500"
+                  >
+                    <div class="flex items-center gap-4">
+                      <span class="flex items-center gap-1">
+                        <i data-lucide="calendar" class="size-4"></i>
+                        ۲۵ تیر ۱۴۰۵
+                      </span>
+
+                      <span class="flex items-center gap-1">
+                        <i data-lucide="clock-3" class="size-4"></i>
+                        ۵ دقیقه
+                      </span>
+                    </div>
+
+                    <span class="flex items-center gap-1 font-bold text-brand">
+                      مطالعه
+                      <i data-lucide="arrow-left" class="size-4"></i>
+                    </span>
+                  </div>
+                </article>
+              </div>
+              <div class="swiper-pagination !relative !bottom-0 mt-8"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-navy text-white">
+      <div
+        class="container-site grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        <div>
+          <a
+            href="#home"
+            class="relative z-50 flex items-center"
+            aria-label="کارنیکا"
+          >
+            <img
+              src="assets/images/karnika-logo-white.png"
+              alt="کارنیکا"
+              class="h-11 w-auto lg:h-14"
+            />
+          </a>
+          <p class="mt-5 text-xs leading-7 text-white/55">
+            کارنیکا پلاست ایرانیان، تولیدکننده محصولات نایلونی و نایلکسی برای
+            مصارف خانگی، صنعتی و کشاورزی.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-black">محصولات</h3>
+          <ul class="mt-5 space-y-3 text-xs text-white/55">
+            <li><a href="#" class="hover:text-white">محصولات خانگی</a></li>
+            <li><a href="#" class="hover:text-white">محصولات صنعتی</a></li>
+            <li><a href="#" class="hover:text-white">کیسه‌های نایلکسی</a></li>
+            <li><a href="#" class="hover:text-white">محصولات کشاورزی</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-black">دسترسی سریع</h3>
+          <ul class="mt-5 space-y-3 text-xs text-white/55">
+            <li><a href="#home" class="hover:text-white">خانه</a></li>
+            <li><a href="#about" class="hover:text-white">درباره ما</a></li>
+            <li><a href="#news" class="hover:text-white">اخبار و رسانه</a></li>
+            <li><a href="#contact" class="hover:text-white">تماس با ما</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-black">تماس با ما</h3>
+          <div class="mt-5 space-y-4 text-xs text-white/55">
+            <p class="flex items-center gap-3 hover:text-white cursor-pointer">
+              <i data-lucide="phone" class="size-4 text-brand"></i> ۰۲۱-۱۲۳۴۵۶۷۸
+            </p>
+            <p class="flex items-center gap-3 hover:text-white cursor-pointer">
+              <i data-lucide="mail" class="size-4 text-brand"></i>
+              info@karnika.ir
+            </p>
+            <p class="flex items-center gap-3 hover:text-white cursor-pointer">
+              <i data-lucide="map-pin" class="size-4 text-brand"></i> تهران،
+              شهرک صنعتی
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10">
+        <div
+          class="container-site flex flex-col gap-3 py-5 text-center text-[11px] text-white/40 sm:flex-row sm:justify-between sm:text-right"
+        >
+          <p>© ۱۴۰۵ تمامی حقوق برای کارنیکا محفوظ است.</p>
+          <p>طراحی و توسعه وب‌سایت</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
