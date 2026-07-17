@@ -114,3 +114,140 @@ document.addEventListener("DOMContentLoaded", () => {
 
   counters.forEach((counter) => counterObserver.observe(counter));
 });
+
+// Awards Swiper
+const awardsSwiperElement = document.querySelector(".awardsSwiper");
+
+if (awardsSwiperElement) {
+  new Swiper(".awardsSwiper", {
+    slidesPerView: 1.15,
+    spaceBetween: 16,
+    speed: 600,
+    watchOverflow: true,
+    grabCursor: true,
+
+    // اسلایدر عمداً autoplay ندارد
+    autoplay: false,
+
+    navigation: {
+      nextEl: ".awards-next",
+      prevEl: ".awards-prev",
+    },
+
+    pagination: {
+      el: ".awards-pagination",
+      clickable: true,
+    },
+
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 24,
+      },
+
+      1280: {
+        slidesPerView: 4,
+        spaceBetween: 24,
+      },
+    },
+  });
+}
+
+// Awards Modal
+
+const certificateSwiper = new Swiper(".certificateSwiper", {
+  slidesPerView: 1.15,
+  spaceBetween: 16,
+  speed: 700,
+  grabCursor: true,
+  watchOverflow: true,
+
+  navigation: {
+    nextEl: ".certificate-next",
+    prevEl: ".certificate-prev",
+  },
+
+  pagination: {
+    el: ".certificate-pagination",
+    clickable: true,
+  },
+
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 18,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    1280: {
+      slidesPerView: 4,
+      spaceBetween: 24,
+    },
+  },
+});
+
+const certificateModal = document.getElementById("certificateModal");
+const certificateModalContent = document.getElementById(
+  "certificateModalContent",
+);
+const certificateModalImage = document.getElementById("certificateModalImage");
+const certificateModalTitle = document.getElementById("certificateModalTitle");
+const certificateModalClose = document.getElementById("certificateModalClose");
+const certificateModalBackdrop = document.getElementById(
+  "certificateModalBackdrop",
+);
+
+function openCertificateModal(imageSrc, imageTitle) {
+  certificateModalImage.src = imageSrc;
+  certificateModalImage.alt = imageTitle;
+  certificateModalTitle.textContent = imageTitle;
+
+  certificateModal.classList.remove("hidden");
+  certificateModal.classList.add("flex");
+
+  document.body.style.overflow = "hidden";
+
+  requestAnimationFrame(() => {
+    certificateModalContent.classList.remove("scale-95", "opacity-0");
+    certificateModalContent.classList.add("scale-100", "opacity-100");
+  });
+}
+
+function closeCertificateModal() {
+  certificateModalContent.classList.remove("scale-100", "opacity-100");
+  certificateModalContent.classList.add("scale-95", "opacity-0");
+
+  setTimeout(() => {
+    certificateModal.classList.remove("flex");
+    certificateModal.classList.add("hidden");
+
+    certificateModalImage.src = "";
+    certificateModalTitle.textContent = "";
+    document.body.style.overflow = "";
+  }, 300);
+}
+
+document.querySelectorAll(".certificate-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    const imageSrc = card.dataset.certificateImage;
+    const imageTitle = card.dataset.certificateTitle;
+
+    openCertificateModal(imageSrc, imageTitle);
+  });
+});
+
+certificateModalClose.addEventListener("click", closeCertificateModal);
+certificateModalBackdrop.addEventListener("click", closeCertificateModal);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && certificateModal.classList.contains("flex")) {
+    closeCertificateModal();
+  }
+});

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="وب‌سایت معرفی شرکت کارنیکا پلاست ایرانیان"
+      content="کارنیکا پلاست ایرانیان تولیدکننده انواع نایلون، نایلکس، فیلم‌های کشاورزی، بسته‌بندی و محصولات پلیمری با بیش از ۸ سال تجربه."
     />
     <title>کارنیکا پلاست ایرانیان</title>
 
@@ -33,21 +33,24 @@
       };
     </script>
 
-    <!-- Vazirmatn -->
+    <!-- Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+
+    <link rel="icon" href="assets/images/favicon.ico" />
 
     <!-- Swiper -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css" />
 
     <style>
+      @font-face {
+        font-family: "Vazirmatn";
+        src: url("./assets/fonts/vazirmatn/Vazirmatn-Regular.woff2")
+          format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
       html {
         scroll-behavior: smooth;
       }
@@ -152,6 +155,34 @@
           display: none;
         }
       }
+      .certificate-pagination .swiper-pagination-bullet {
+        width: 7px;
+        height: 7px;
+        margin: 0 4px !important;
+        background: #94a3b8;
+        opacity: 0.45;
+        transition:
+          width 0.3s ease,
+          opacity 0.3s ease,
+          background-color 0.3s ease;
+      }
+
+      .certificate-pagination .swiper-pagination-bullet-active {
+        width: 24px;
+        border-radius: 999px;
+        background: #e31d2b;
+        opacity: 1;
+      }
+
+      .certificateSwiper .swiper-slide {
+        height: auto;
+      }
+
+      .certificate-card {
+        appearance: none;
+        border: 0;
+        padding: 0;
+      }
     </style>
   </head>
 
@@ -159,7 +190,7 @@
     <!-- Header -->
     <header
       id="siteHeader"
-      class="sticky inset-x-0 top-0 z-50 bg-[#f6f7f8] bg-navy text-white transition-all duration-300"
+      class="sticky inset-x-0 top-0 z-50 bg-navy text-white transition-all duration-300"
     >
       <div
         class="container-site flex h-20 items-center justify-between gap-6 lg:h-24"
@@ -172,7 +203,7 @@
           <img
             src="assets/images/karnika-logo-white.png"
             alt="کارنیکا"
-            class="h-11 w-auto lg:h-14"
+            class="h-11 w-auto lg:h-12"
           />
         </a>
 
@@ -184,20 +215,26 @@
           <a class="nav-link" href="#contact">تماس با ما</a>
         </nav>
 
-        <div class="hidden items-center gap-3 lg:flex">
-          <button
-            type="button"
-            aria-label="جستجو"
-            class="grid size-10 place-items-center rounded-xl border border-white/10 hover:bg-white/10"
+        <div
+          class="group relative hidden size-10 shrink-0 items-center lg:flex"
+        >
+          <div
+            class="absolute left-0 top-1/2 flex w-10 -translate-y-1/2 items-center overflow-hidden rounded-xl border border-white/10 bg-navy transition-all duration-700 ease-out group-hover:w-72 group-focus-within:w-72"
           >
-            <i data-lucide="search" class="size-4"></i>
-          </button>
-          <a
-            href="#contact"
-            class="rounded-xl border border-white/40 px-5 py-3 text-xs font-bold transition hover:border-brand hover:bg-brand"
-          >
-            درخواست همکاری
-          </a>
+            <button
+              type="button"
+              aria-label="جستجو"
+              class="grid size-10 shrink-0 place-items-center text-white transition hover:bg-white/10"
+            >
+              <i data-lucide="search" class="size-4"></i>
+            </button>
+
+            <input
+              type="search"
+              placeholder="جستجوی محصولات..."
+              class="min-w-0 flex-1 bg-transparent px-0 text-sm text-white opacity-0 outline-none placeholder:text-white/60 transition-all duration-700 group-hover:px-3 group-hover:opacity-100 group-focus-within:px-3 group-focus-within:opacity-100"
+            />
+          </div>
         </div>
 
         <button
@@ -371,7 +408,7 @@
         <div class="container-site">
           <div class="mb-10 max-w-2xl reveal">
             <div class="flex gap-1 items-center mb-3">
-              <span class="h-[2px] w-2 bg-brand sm:w-3"></span>
+              <span class="h-[2px] w-8 bg-brand"></span>
               <p class="text-sm font-extrabold text-brand">محصولات ما</p>
             </div>
             <h2 class="text-3xl font-black text-navy sm:text-4xl">
@@ -382,77 +419,163 @@
               کشاورزی با کیفیت یکنواخت و قابلیت تولید سفارشی عرضه می‌کند.
             </p>
           </div>
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             <article
-              class="product-card reveal relative min-h-[310px] overflow-hidden rounded-2xl shadow-card"
+              class="group relative min-h-[430px] overflow-hidden rounded-[28px] shadow-card"
             >
+              <!-- Image -->
               <img
                 src="assets/images/categories/category-4.avif"
-                class="absolute inset-0 h-full w-full object-cover"
                 alt="محصولات خانگی"
+                class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
               />
+
+              <!-- Overlay -->
               <div
-                class="absolute inset-0 z-10 flex flex-col items-center justify-end p-6 text-center text-white"
+                class="absolute inset-0 bg-gradient-to-t from-[#071d3c] via-[#071d3c]/45 to-transparent"
+              ></div>
+
+              <!-- Content -->
+              <div
+                class="relative z-10 flex h-full flex-col justify-end p-7 text-white"
               >
-                <i data-lucide="home" class="mb-5 size-9"></i>
-                <h3 class="text-xl font-black">محصولات خانگی</h3>
-                <p class="mt-3 text-xs leading-6 text-white/70">
-                  سفره، کیسه زباله و محصولات مصرفی خانه
+                <div
+                  class="mb-4 grid h-14 w-14 place-items-center rounded-full bg-brand shadow-lg"
+                >
+                  <i data-lucide="home" class="size-7"></i>
+                </div>
+
+                <h3 class="text-3xl font-black leading-tight">محصولات خانگی</h3>
+
+                <p class="mt-1 max-w-[90%] text-sm leading-7 text-white/75">
+                  سفره، کیسه زباله و سایر محصولات مصرفی و بهداشتی خانه
                 </p>
+
+                <button
+                  class="mt-4 grid h-11 w-11 place-items-center rounded-full border border-brand text-white transition hover:bg-brand"
+                >
+                  <i data-lucide="arrow-left" class="size-5"></i>
+                </button>
               </div>
             </article>
             <article
-              class="product-card reveal relative min-h-[310px] overflow-hidden rounded-2xl shadow-card"
+              class="group relative min-h-[430px] overflow-hidden rounded-[28px] shadow-card"
             >
+              <!-- Image -->
               <img
                 src="assets/images/categories/category-3.avif"
-                class="absolute inset-0 h-full w-full object-cover"
                 alt="کیسه‌های نایلکسی"
+                class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
               />
+
+              <!-- Overlay -->
               <div
-                class="absolute inset-0 z-10 flex flex-col items-center justify-end p-6 text-center text-white"
+                class="absolute inset-0 bg-gradient-to-t from-[#071d3c] via-[#071d3c]/45 to-transparent"
+              ></div>
+
+              <!-- Content -->
+              <div
+                class="relative z-10 flex h-full flex-col justify-end p-7 text-white"
               >
-                <i data-lucide="shopping-bag" class="mb-5 size-9"></i>
-                <h3 class="text-xl font-black">کیسه‌های نایلکسی</h3>
-                <p class="mt-3 text-xs leading-6 text-white/70">
-                  کیسه فروشگاهی و بسته‌بندی در ابعاد مختلف
+                <div
+                  class="mb-4 grid h-14 w-14 place-items-center rounded-full bg-brand shadow-lg"
+                >
+                  <i data-lucide="shopping-bag" class="size-7"></i>
+                </div>
+
+                <h3 class="text-3xl font-black leading-tight">
+                  کیسه‌های نایلکسی
+                </h3>
+
+                <p class="mt-1 max-w-[90%] text-sm leading-7 text-white/75">
+                  کیسه فروشگاهی و بسته‌بندی در ابعاد و ضخامت‌های مختلف
                 </p>
+
+                <button
+                  class="mt-4 grid h-11 w-11 place-items-center rounded-full border border-brand text-white transition duration-300 hover:bg-brand"
+                >
+                  <i data-lucide="arrow-left" class="size-5"></i>
+                </button>
               </div>
             </article>
             <article
-              class="product-card reveal relative min-h-[310px] overflow-hidden rounded-2xl shadow-card"
+              class="group relative min-h-[430px] overflow-hidden rounded-[28px] shadow-card"
             >
+              <!-- Image -->
               <img
                 src="assets/images/categories/category-2.avif"
-                class="absolute inset-0 h-full w-full object-cover"
                 alt="محصولات صنعتی"
+                class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
               />
+
+              <!-- Overlay -->
               <div
-                class="absolute inset-0 z-10 flex flex-col items-center justify-end p-6 text-center text-white"
+                class="absolute inset-0 bg-gradient-to-t from-[#071d3c] via-[#071d3c]/45 to-transparent"
+              ></div>
+
+              <!-- Content -->
+              <div
+                class="relative z-10 flex h-full flex-col justify-end p-7 text-white"
               >
-                <i data-lucide="factory" class="mb-5 size-9"></i>
-                <h3 class="text-xl font-black">محصولات صنعتی</h3>
-                <p class="mt-3 text-xs leading-6 text-white/70">
-                  نایلون صنعتی، بسته‌بندی و پوشش‌های محافظ
+                <div
+                  class="mb-4 grid h-14 w-14 place-items-center rounded-full bg-brand shadow-lg"
+                >
+                  <i data-lucide="factory" class="size-7"></i>
+                </div>
+
+                <h3 class="text-3xl font-black leading-tight">محصولات صنعتی</h3>
+
+                <p class="mt-1 max-w-[90%] text-sm leading-7 text-white/75">
+                  نایلون صنعتی، فیلم‌های بسته‌بندی و پوشش‌های محافظ برای
+                  کاربردهای تخصصی
                 </p>
+
+                <button
+                  class="mt-4 grid h-11 w-11 place-items-center rounded-full border border-brand text-white transition duration-300 hover:bg-brand"
+                >
+                  <i data-lucide="arrow-left" class="size-5"></i>
+                </button>
               </div>
             </article>
             <article
-              class="product-card reveal relative min-h-[310px] overflow-hidden rounded-2xl shadow-card"
+              class="group relative min-h-[430px] overflow-hidden rounded-[28px] shadow-card"
             >
+              <!-- Image -->
               <img
                 src="assets/images/categories/category-1.avif"
-                class="absolute inset-0 h-full w-full object-cover"
                 alt="محصولات کشاورزی"
+                class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
               />
+
+              <!-- Overlay -->
               <div
-                class="absolute inset-0 z-10 flex flex-col items-center justify-end p-6 text-center text-white"
+                class="absolute inset-0 bg-gradient-to-t from-[#071d3c] via-[#071d3c]/45 to-transparent"
+              ></div>
+
+              <!-- Content -->
+              <div
+                class="relative z-10 flex h-full flex-col justify-end p-7 text-white"
               >
-                <i data-lucide="sprout" class="mb-5 size-9"></i>
-                <h3 class="text-xl font-black">محصولات کشاورزی</h3>
-                <p class="mt-3 text-xs leading-6 text-white/70">
-                  نایلون گلخانه‌ای و پوشش‌های تخصصی کشاورزی
+                <div
+                  class="mb-4 grid h-14 w-14 place-items-center rounded-full bg-brand shadow-lg"
+                >
+                  <i data-lucide="sprout" class="size-7"></i>
+                </div>
+
+                <h3 class="text-3xl font-black leading-tight">
+                  محصولات کشاورزی
+                </h3>
+
+                <p class="mt-1 max-w-[90%] text-sm leading-7 text-white/75">
+                  نایلون گلخانه‌ای، مالچ کشاورزی و پوشش‌های تخصصی برای افزایش
+                  بهره‌وری مزارع
                 </p>
+
+                <button
+                  class="mt-4 grid h-11 w-11 place-items-center rounded-full border border-brand text-white transition duration-300 hover:bg-brand"
+                >
+                  <i data-lucide="arrow-left" class="size-5"></i>
+                </button>
               </div>
             </article>
           </div>
@@ -463,93 +586,78 @@
       <section id="about" class="bg-white py-16 lg:py-24">
         <div class="container-site grid items-center gap-12 lg:grid-cols-2">
           <div class="reveal">
-            <div class="flex gap-1 items-center mb-3">
-              <span class="h-[2px] w-2 bg-brand sm:w-3"></span>
-              <p class="text-sm font-extrabold text-brand">درباره ما</p>
+            <div class="flex items-center gap-2">
+              <span class="h-[2px] w-8 bg-brand"></span>
+              <p class="text-sm font-extrabold tracking-wide text-brand">
+                درباره ما
+              </p>
             </div>
-            <h2 class="text-3xl font-black text-navy sm:text-4xl">
+
+            <h2
+              class="mt-5 text-4xl font-black leading-[1.35] text-navy lg:text-5xl"
+            >
               کارنیکا پلاست ایرانیان
             </h2>
-            <p class="mt-6 text-sm leading-8 text-slate-500 sm:text-base">
-              کارنیکا از سال ۱۳۹۶ با تمرکز بر تولید محصولات پلیمری باکیفیت
-              فعالیت خود را آغاز کرد. هدف ما ارائه محصولاتی قابل‌اعتماد، یکنواخت
-              و متناسب با نیاز بازار ایران است.
+
+            <p class="mt-5 text-2xl font-black leading-relaxed text-slate-700">
+              بیش از
+              <span class="text-brand">۸ سال</span>
+              تجربه در تولید محصولات پلیمری
             </p>
 
-            <div class="mt-8 grid gap-5 sm:grid-cols-2">
-              <div class="flex gap-4">
-                <div
-                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-red-50 text-brand"
-                >
-                  <i data-lucide="badge-check"></i>
-                </div>
-                <div>
-                  <h3 class="font-black text-navy">کنترل کیفیت مستمر</h3>
-                  <p class="mt-2 text-xs leading-6 text-slate-500">
-                    کنترل مواد اولیه و محصول نهایی
-                  </p>
-                </div>
+            <p class="mt-6 w-full leading-8 text-slate-500">
+              کارنیکا از سال ۱۳۹۶ با تمرکز بر تولید محصولات پلیمری فعالیت خود را
+              آغاز کرد. امروز با تکیه بر کیفیت، فناوری روز و کنترل دقیق فرآیند
+              تولید، محصولات خود را برای صنایع مختلف کشور تأمین می‌کند.
+            </p>
+
+            <!-- Stats -->
+
+            <div
+              class="mt-10 grid grid-cols-3 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+            >
+              <div class="text-center">
+                <div class="text-4xl font-black text-navy">۱۳۹۶</div>
+
+                <div class="mt-2 text-sm text-slate-500">شروع فعالیت</div>
               </div>
 
-              <div class="flex gap-4">
-                <div
-                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-red-50 text-brand"
-                >
-                  <i data-lucide="settings-2"></i>
-                </div>
-                <div>
-                  <h3 class="font-black text-navy">تولید سفارشی</h3>
-                  <p class="mt-2 text-xs leading-6 text-slate-500">
-                    ابعاد، ضخامت و فرمول اختصاصی
-                  </p>
-                </div>
+              <div class="border-x border-slate-200 text-center">
+                <div class="text-4xl font-black text-navy">+۵۰۰</div>
+
+                <div class="mt-2 text-sm text-slate-500">مشتری فعال</div>
               </div>
 
-              <div class="flex gap-4">
-                <div
-                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-red-50 text-brand"
-                >
-                  <i data-lucide="users"></i>
-                </div>
-                <div>
-                  <h3 class="font-black text-navy">تیم متخصص</h3>
-                  <p class="mt-2 text-xs leading-6 text-slate-500">
-                    تجربه صنعتی و پشتیبانی حرفه‌ای
-                  </p>
-                </div>
-              </div>
+              <div class="text-center">
+                <div class="text-4xl font-black text-navy">+۲۰</div>
 
-              <div class="flex gap-4">
-                <div
-                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-red-50 text-brand"
-                >
-                  <i data-lucide="truck"></i>
-                </div>
-                <div>
-                  <h3 class="font-black text-navy">ارسال گسترده</h3>
-                  <p class="mt-2 text-xs leading-6 text-slate-500">
-                    تأمین سفارش مشتریان سراسر کشور
-                  </p>
-                </div>
+                <div class="mt-2 text-sm text-slate-500">استان تحت پوشش</div>
               </div>
             </div>
 
-            <a
-              href="#contact"
-              class="mt-8 inline-flex items-center gap-2 rounded-xl bg-navy px-6 py-3 text-sm font-bold text-white hover:bg-navy2"
-            >
-              درباره ما بیشتر بدانید
-              <i data-lucide="arrow-left" class="size-4"></i>
-            </a>
+            <!-- CTA -->
+
+            <div class="mt-10 flex flex-wrap gap-4">
+              <a
+                href="#contact"
+                class="inline-flex items-center gap-3 rounded-2xl bg-navy px-7 py-4 font-bold text-white transition hover:bg-navy2"
+              >
+                درباره شرکت بیشتر بدانید
+
+                <i data-lucide="arrow-left" class="size-5"></i>
+              </a>
+            </div>
           </div>
 
-          <div class="relative reveal">
+          <div class="relative reveal pb-5 pl-5">
             <div
-              class="absolute -bottom-5 -left-5 h-[92%] w-[88%] rounded-2xl bg-navy"
+              class="absolute bottom-0 left-0 h-[92%] w-[88%] rounded-2xl bg-navy"
             ></div>
+
             <div
-              class="absolute -left-5 top-8 h-52 w-7 rounded-l-xl bg-brand"
+              class="absolute left-0 top-8 h-52 w-7 rounded-l-xl bg-brand"
             ></div>
+
             <img
               src="assets/images/about/about.avif"
               alt="کارخانه کارنیکا"
@@ -567,7 +675,7 @@
           <div class="mb-8 flex items-end justify-between gap-4">
             <div>
               <div class="flex gap-1 items-center mb-3">
-                <span class="h-[2px] w-2 bg-red-300 sm:w-3"></span>
+                <span class="h-[2px] w-8 bg-red-300"></span>
                 <p class="text-sm font-extrabold text-red-300">رسانه کارنیکا</p>
               </div>
               <h2 class="text-2xl font-black sm:text-3xl">
@@ -592,7 +700,7 @@
             <div class="swiper-wrapper">
               <article class="swiper-slide">
                 <img
-                  src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80"
+                  src="assets/images/news/1.avif"
                   class="h-48 w-full rounded-2xl object-cover"
                   alt=""
                 />
@@ -606,7 +714,7 @@
 
               <article class="swiper-slide">
                 <img
-                  src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80"
+                  src="assets/images/news/2.avif"
                   class="h-48 w-full rounded-2xl object-cover"
                   alt=""
                 />
@@ -620,7 +728,7 @@
 
               <article class="swiper-slide">
                 <img
-                  src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=900&q=80"
+                  src="assets/images/news/3.avif"
                   class="h-48 w-full rounded-2xl object-cover"
                   alt=""
                 />
@@ -635,7 +743,7 @@
 
               <article class="swiper-slide">
                 <img
-                  src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80"
+                  src="assets/images/news/4.avif"
                   class="h-48 w-full rounded-2xl object-cover"
                   alt=""
                 />
@@ -653,112 +761,507 @@
       </section>
 
       <!-- Event -->
-      <section class="py-12">
+      <section class="relative overflow-hidden bg-white py-16 lg:py-24">
+        <div class="container-site relative">
+          <div
+            class="overflow-hidden rounded-[32px] border border-slate-200 bg-[#fafafa] shadow-soft"
+          >
+            <!-- Main content -->
+            <div
+              class="grid items-stretch gap-8 p-6 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10 lg:p-12 xl:gap-14 xl:p-16"
+            >
+              <!-- Image -->
+              <div
+                class="group relative min-h-[320px] overflow-hidden rounded-[26px] bg-slate-200 sm:min-h-[400px] lg:min-h-[520px]"
+              >
+                <img
+                  src="assets/images/event/event.avif"
+                  alt="حضور کارنیکا پلاست ایرانیان در نمایشگاه ایران پلاست"
+                  loading="lazy"
+                  class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                />
+
+                <!-- Soft overlay -->
+                <div
+                  class="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent"
+                ></div>
+
+                <!-- Floating badge -->
+                <div
+                  class="absolute bottom-4 left-4 rounded-2xl border border-white/25 bg-navy/85 px-4 py-3 text-white shadow-xl backdrop-blur-md sm:bottom-6 sm:left-6 sm:px-5 sm:py-4"
+                >
+                  <p class="text-[11px] font-bold text-red-300 sm:text-xs">
+                    نمایشگاه تخصصی پلیمر
+                  </p>
+
+                  <p
+                    class="mt-1 text-base font-black tracking-wide sm:text-lg"
+                    dir="ltr"
+                  >
+                    Iran Plast 2024
+                  </p>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="flex min-w-0 flex-col justify-center">
+                <div class="flex items-center gap-2">
+                  <span class="h-[2px] w-8 shrink-0 bg-brand"></span>
+
+                  <p class="text-sm font-extrabold text-brand">رویداد مهم</p>
+                </div>
+
+                <h2
+                  class="mt-5 text-3xl font-black leading-[1.6] text-navy sm:text-4xl lg:text-[38px] xl:text-5xl"
+                >
+                  حضور در نمایشگاه ایران پلاست
+                  <span class="whitespace-nowrap text-brand">۱۴۰۳</span>
+                </h2>
+
+                <p
+                  class="mt-5 max-w-xl text-sm leading-8 text-slate-500 sm:text-base sm:leading-9"
+                >
+                  کارنیکا پلاست ایرانیان در جدیدترین دوره نمایشگاه ایران پلاست،
+                  تازه‌ترین محصولات، راهکارهای تخصصی و توانمندی‌های تولیدی خود
+                  را به صنعتگران و فعالان حوزه پلیمر معرفی کرد.
+                </p>
+
+                <!-- Event info -->
+                <div
+                  class="mt-7 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+                >
+                  <div
+                    class="flex items-center gap-4 border-b border-slate-100 px-4 py-4 sm:px-5"
+                  >
+                    <span
+                      class="grid size-10 shrink-0 place-items-center rounded-xl bg-red-50 text-brand"
+                    >
+                      <i data-lucide="calendar-days" class="size-5"></i>
+                    </span>
+
+                    <div class="min-w-0">
+                      <p class="text-xs font-bold text-slate-400">
+                        زمان برگزاری
+                      </p>
+
+                      <p class="mt-1 text-sm font-extrabold text-navy">
+                        ۱۸ تا ۲۱ شهریور ۱۴۰۳
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center gap-4 px-4 py-4 sm:px-5">
+                    <span
+                      class="grid size-10 shrink-0 place-items-center rounded-xl bg-red-50 text-brand"
+                    >
+                      <i data-lucide="map-pin" class="size-5"></i>
+                    </span>
+
+                    <div class="min-w-0">
+                      <p class="text-xs font-bold text-slate-400">
+                        محل برگزاری
+                      </p>
+
+                      <p
+                        class="mt-1 text-sm font-extrabold leading-6 text-navy"
+                      >
+                        محل دائمی نمایشگاه‌های بین‌المللی تهران
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <a
+                  href="#"
+                  class="mt-7 ms-auto inline-flex w-fit items-center justify-center gap-3 rounded-xl bg-brand px-6 py-3.5 text-sm font-extrabold text-white shadow-lg transition hover:bg-red-700"
+                >
+                  مشاهده گزارش نمایشگاه
+                  <i data-lucide="arrow-left" class="size-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Statistics -->
+            <div
+              class="mx-4 mb-4 grid overflow-hidden rounded-[24px] bg-navy text-white sm:mx-6 sm:mb-6 sm:grid-cols-2 lg:mx-8 lg:mb-8 lg:grid-cols-4"
+            >
+              <!-- Item -->
+              <div
+                class="flex min-h-[120px] items-center justify-center gap-4 border-b border-white/10 p-5 sm:border-l lg:border-b-0"
+              >
+                <span
+                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-white/5"
+                >
+                  <i data-lucide="users" class="size-7 text-brand"></i>
+                </span>
+
+                <div>
+                  <p class="text-2xl font-black">۱۲ هزار+</p>
+                  <p class="mt-1 text-xs leading-5 text-slate-300">
+                    بازدیدکننده نمایشگاه
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div
+                class="flex min-h-[120px] items-center justify-center gap-4 border-b border-white/10 p-5 lg:border-b-0 lg:border-l"
+              >
+                <span
+                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-white/5"
+                >
+                  <i
+                    data-lucide="briefcase-business"
+                    class="size-7 text-brand"
+                  ></i>
+                </span>
+
+                <div>
+                  <p class="text-2xl font-black">۳۲+</p>
+                  <p class="mt-1 text-xs leading-5 text-slate-300">
+                    دیدار تخصصی
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div
+                class="flex min-h-[120px] items-center justify-center gap-4 border-b border-white/10 p-5 sm:border-b-0 sm:border-l"
+              >
+                <span
+                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-white/5"
+                >
+                  <i data-lucide="package-open" class="size-7 text-brand"></i>
+                </span>
+
+                <div>
+                  <p class="text-2xl font-black">۵</p>
+                  <p class="mt-1 text-xs leading-5 text-slate-300">
+                    محصول جدید معرفی‌شده
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div
+                class="flex min-h-[120px] items-center justify-center gap-4 p-5"
+              >
+                <span
+                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-white/5"
+                >
+                  <i data-lucide="handshake" class="size-7 text-brand"></i>
+                </span>
+
+                <div>
+                  <p class="text-2xl font-black">۱۸+</p>
+                  <p class="mt-1 text-xs leading-5 text-slate-300">
+                    تفاهم‌نامه همکاری
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certificates -->
+      <section class="bg-white py-16 lg:py-24">
+        <div class="container-site">
+          <!-- Section Header -->
+          <div class="mb-10 flex items-end justify-between gap-6">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="h-[2px] w-8 bg-brand"></span>
+                <p class="text-sm font-extrabold text-brand">
+                  افتخارات و گواهینامه‌ها
+                </p>
+              </div>
+
+              <h2 class="mt-4 text-3xl font-black text-navy lg:text-4xl">
+                گواهینامه‌ها و تقدیرنامه‌ها
+              </h2>
+
+              <p class="mt-3 max-w-xl text-sm leading-7 text-slate-500">
+                بخشی از مجوزها، استانداردها و افتخارات کسب‌شده توسط کارنیکا
+                پلاست ایرانیان
+              </p>
+            </div>
+
+            <!-- Navigation -->
+            <div class="hidden items-center gap-2 sm:flex">
+              <button
+                type="button"
+                class="certificate-prev grid size-11 place-items-center rounded-full border border-slate-200 bg-white text-navy transition hover:border-navy hover:bg-navy hover:text-white"
+                aria-label="اسلاید قبلی"
+              >
+                <i data-lucide="chevron-right" class="size-5"></i>
+              </button>
+
+              <button
+                type="button"
+                class="certificate-next grid size-11 place-items-center rounded-full border border-slate-200 bg-white text-navy transition hover:border-navy hover:bg-navy hover:text-white"
+                aria-label="اسلاید بعدی"
+              >
+                <i data-lucide="chevron-left" class="size-5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Swiper -->
+          <div class="swiper certificateSwiper overflow-hidden">
+            <div class="swiper-wrapper">
+              <!-- Slide 1 -->
+              <div class="swiper-slide h-auto">
+                <button
+                  type="button"
+                  class="certificate-card group block h-full w-full text-right"
+                  data-certificate-image="assets/images/awards/1.avif"
+                  data-certificate-title="واحد صنعتی نمونه"
+                >
+                  <div
+                    class="relative overflow-hidden rounded-3xl border border-slate-200 bg-[#fafafa] p-3 transition duration-500"
+                  >
+                    <div
+                      class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100"
+                    >
+                      <img
+                        src="assets/images/awards/1.avif"
+                        alt="تقدیرنامه واحد صنعتی نمونه"
+                        class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                        loading="lazy"
+                      />
+
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100"
+                      ></div>
+
+                      <span
+                        class="absolute bottom-4 left-4 grid size-11 translate-y-3 place-items-center rounded-full bg-white text-navy opacity-0 shadow-lg transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+                      >
+                        <i data-lucide="maximize-2" class="size-5"></i>
+                      </span>
+                    </div>
+
+                    <div class="px-2 pb-2 pt-5">
+                      <h3 class="font-black text-navy">واحد صنعتی نمونه</h3>
+                    </div>
+                  </div>
+                </button>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="swiper-slide h-auto">
+                <button
+                  type="button"
+                  class="certificate-card group block h-full w-full text-right"
+                  data-certificate-image="assets/images/awards/2.avif"
+                  data-certificate-title="گواهینامه ISO 9001"
+                >
+                  <div
+                    class="relative overflow-hidden rounded-3xl border border-slate-200 bg-[#fafafa] p-3 transition duration-500"
+                  >
+                    <div
+                      class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100"
+                    >
+                      <img
+                        src="assets/images/awards/2.avif"
+                        alt="گواهینامه ISO 9001"
+                        class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                        loading="lazy"
+                      />
+
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100"
+                      ></div>
+
+                      <span
+                        class="absolute bottom-4 left-4 grid size-11 translate-y-3 place-items-center rounded-full bg-white text-navy opacity-0 shadow-lg transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+                      >
+                        <i data-lucide="maximize-2" class="size-5"></i>
+                      </span>
+                    </div>
+
+                    <div class="px-2 pb-2 pt-5">
+                      <h3 class="font-black text-navy">گواهینامه ISO 9001</h3>
+                    </div>
+                  </div>
+                </button>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="swiper-slide h-auto">
+                <button
+                  type="button"
+                  class="certificate-card group block h-full w-full text-right"
+                  data-certificate-image="assets/images/awards/1.avif"
+                  data-certificate-title="گواهینامه CE"
+                >
+                  <div
+                    class="relative overflow-hidden rounded-3xl border border-slate-200 bg-[#fafafa] p-3 transition duration-500"
+                  >
+                    <div
+                      class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100"
+                    >
+                      <img
+                        src="assets/images/awards/1.avif"
+                        alt="گواهینامه CE"
+                        class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                        loading="lazy"
+                      />
+
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100"
+                      ></div>
+
+                      <span
+                        class="absolute bottom-4 left-4 grid size-11 translate-y-3 place-items-center rounded-full bg-white text-navy opacity-0 shadow-lg transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+                      >
+                        <i data-lucide="maximize-2" class="size-5"></i>
+                      </span>
+                    </div>
+
+                    <div class="px-2 pb-2 pt-5">
+                      <h3 class="font-black text-navy">گواهینامه CE</h3>
+                    </div>
+                  </div>
+                </button>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="swiper-slide h-auto">
+                <button
+                  type="button"
+                  class="certificate-card group block h-full w-full text-right"
+                  data-certificate-image="assets/images/awards/2.avif"
+                  data-certificate-title="نشان استاندارد ملی"
+                >
+                  <div
+                    class="relative overflow-hidden rounded-3xl border border-slate-200 bg-[#fafafa] p-3 transition duration-500"
+                  >
+                    <div
+                      class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100"
+                    >
+                      <img
+                        src="assets/images/awards/2.avif"
+                        alt="نشان استاندارد ملی"
+                        class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                        loading="lazy"
+                      />
+
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100"
+                      ></div>
+
+                      <span
+                        class="absolute bottom-4 left-4 grid size-11 translate-y-3 place-items-center rounded-full bg-white text-navy opacity-0 shadow-lg transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+                      >
+                        <i data-lucide="maximize-2" class="size-5"></i>
+                      </span>
+                    </div>
+
+                    <div class="px-2 pb-2 pt-5">
+                      <h3 class="font-black text-navy">نشان استاندارد ملی</h3>
+                    </div>
+                  </div>
+                </button>
+              </div>
+
+              <!-- Slide 5 - Example -->
+              <div class="swiper-slide h-auto">
+                <button
+                  type="button"
+                  class="certificate-card group block h-full w-full text-right"
+                  data-certificate-image="assets/images/awards/1.avif"
+                  data-certificate-title="تقدیرنامه نمایشگاه ایران پلاست"
+                >
+                  <div
+                    class="relative overflow-hidden rounded-3xl border border-slate-200 bg-[#fafafa] p-3 transition duration-500"
+                  >
+                    <div
+                      class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100"
+                    >
+                      <img
+                        src="assets/images/awards/1.avif"
+                        alt="تقدیرنامه نمایشگاه ایران پلاست"
+                        class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                        loading="lazy"
+                      />
+
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100"
+                      ></div>
+
+                      <span
+                        class="absolute bottom-4 left-4 grid size-11 translate-y-3 place-items-center rounded-full bg-white text-navy opacity-0 shadow-lg transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+                      >
+                        <i data-lucide="maximize-2" class="size-5"></i>
+                      </span>
+                    </div>
+
+                    <div class="px-2 pb-2 pt-5">
+                      <h3 class="font-black text-navy">
+                        تقدیرنامه نمایشگاه ایران پلاست
+                      </h3>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certificate Modal -->
+      <div
+        id="certificateModal"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-8"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="certificateModalTitle"
+      >
+        <!-- Backdrop -->
+        <button
+          id="certificateModalBackdrop"
+          type="button"
+          class="absolute inset-0 cursor-default bg-navy/90 backdrop-blur-sm"
+          aria-label="بستن مودال"
+        ></button>
+
+        <!-- Modal Content -->
         <div
-          class="container-site grid gap-6 overflow-hidden rounded-3xl border border-slate-200 bg-[#fafafa] p-6 lg:grid-cols-2 lg:p-8"
+          id="certificateModalContent"
+          class="relative z-10 flex max-h-[92vh] w-full max-w-4xl scale-95 flex-col overflow-hidden rounded-3xl bg-white opacity-0 shadow-2xl transition duration-300"
         >
-          <!-- Image -->
-          <div class="overflow-hidden rounded-2xl">
+          <div
+            class="flex shrink-0 items-center justify-between border-b border-slate-100 px-5 py-4 sm:px-7"
+          >
+            <h3
+              id="certificateModalTitle"
+              class="font-black text-navy sm:text-lg"
+            ></h3>
+
+            <button
+              id="certificateModalClose"
+              type="button"
+              class="grid size-10 place-items-center rounded-full bg-slate-100 text-navy transition hover:bg-brand hover:text-white"
+              aria-label="بستن"
+            >
+              <i data-lucide="x" class="size-5"></i>
+            </button>
+          </div>
+
+          <div
+            class="flex min-h-0 flex-1 items-center justify-center overflow-auto bg-slate-100 p-3 sm:p-6"
+          >
             <img
-              src="assets/images/event/event.avif"
-              class="aspect-[5/3] object-cover"
-              alt="نمایشگاه"
+              id="certificateModalImage"
+              src=""
+              alt=""
+              class="max-h-[75vh] max-w-full rounded-xl object-contain shadow-lg"
             />
           </div>
-
-          <!-- Content -->
-          <div class="flex flex-col justify-center rounded-2xl p-8 lg:p-12">
-            <div class="flex gap-1 items-center mb-3">
-              <span class="h-[2px] w-2 bg-brand sm:w-3"></span>
-              <p class="text-sm font-extrabold text-brand">رویداد مهم</p>
-            </div>
-
-            <h2 class="mt-3 text-3xl font-black leading-relaxed text-navy">
-              حضور در نمایشگاه ایران پلاست ۱۴۰۳
-            </h2>
-
-            <p class="mt-5 text-sm leading-8 text-slate-500">
-              کارنیکا پلاست ایرانیان در جدیدترین دوره نمایشگاه ایران پلاست،
-              تازه‌ترین محصولات و توانمندی‌های تولیدی خود را معرفی کرد.
-            </p>
-
-            <div class="mt-5 space-y-2 text-sm text-slate-600">
-              <p class="flex items-center gap-2">
-                <i data-lucide="calendar-days" class="size-4 text-brand"></i>
-                ۱۸ تا ۲۱ شهریور ۱۴۰۳
-              </p>
-
-              <p class="flex items-center gap-2">
-                <i data-lucide="map-pin" class="size-4 text-brand"></i>
-                نمایشگاه بین‌المللی تهران
-              </p>
-            </div>
-
-            <a
-              href="#"
-              class="mt-7 ms-auto inline-flex w-fit items-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-bold text-white transition hover:bg-red-700"
-            >
-              مشاهده جزئیات
-              <i data-lucide="arrow-left" class="size-4"></i>
-            </a>
-          </div>
         </div>
-      </section>
-
-      <!-- Awards -->
-      <section class="bg-white py-16">
-        <div class="container-site">
-          <div class="mb-10 text-right">
-            <div class="flex gap-1 items-center mb-3">
-              <span class="h-[2px] w-2 bg-brand sm:w-3"></span>
-              <p class="text-sm font-extrabold text-brand">افتخارات</p>
-            </div>
-            <h2 class="mt-3 text-3xl font-black text-navy">
-              افتخارات و گواهینامه‌ها
-            </h2>
-          </div>
-
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <div
-              class="rounded-2xl border border-slate-100 bg-[#fafafa] p-7 text-center"
-            >
-              <i data-lucide="award" class="mx-auto size-12 text-navy"></i>
-              <h3 class="mt-5 font-black text-navy">واحد صنعتی نمونه</h3>
-              <p class="mt-2 text-xs text-slate-500">استانی و شهرستانی</p>
-            </div>
-            <div
-              class="rounded-2xl border border-slate-100 bg-[#fafafa] p-7 text-center"
-            >
-              <i
-                data-lucide="badge-check"
-                class="mx-auto size-12 text-navy"
-              ></i>
-              <h3 class="mt-5 font-black text-navy">گواهینامه ISO 9001</h3>
-              <p class="mt-2 text-xs text-slate-500">مدیریت کیفیت</p>
-            </div>
-            <div
-              class="rounded-2xl border border-slate-100 bg-[#fafafa] p-7 text-center"
-            >
-              <i
-                data-lucide="clipboard-check"
-                class="mx-auto size-12 text-navy"
-              ></i>
-              <h3 class="mt-5 font-black text-navy">گواهینامه CE</h3>
-              <p class="mt-2 text-xs text-slate-500">استاندارد محصول</p>
-            </div>
-            <div
-              class="rounded-2xl border border-slate-100 bg-[#fafafa] p-7 text-center"
-            >
-              <i
-                data-lucide="shield-check"
-                class="mx-auto size-12 text-navy"
-              ></i>
-              <h3 class="mt-5 font-black text-navy">نشان استاندارد ملی</h3>
-              <p class="mt-2 text-xs text-slate-500">مطابقت با الزامات تولید</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
 
       <!-- Stats -->
       <section class="bg-white py-8">
@@ -766,9 +1269,9 @@
           class="container-site rounded-2xl bg-navy px-5 py-10 text-white sm:px-8"
         >
           <div class="mb-10 flex gap-2 items-center justify-center">
-            <span class="h-[2px] w-2 bg-brand sm:w-3"></span>
+            <span class="h-[2px] w-8 bg-brand"></span>
             <h2 class="text-xl font-black">کارنیکا در یک نگاه</h2>
-            <span class="h-[2px] w-2 bg-brand sm:w-3"></span>
+            <span class="h-[2px] w-8 bg-brand"></span>
           </div>
           <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div class="text-center lg:border-l lg:border-white/15">
@@ -822,7 +1325,7 @@
             <div class="mb-8 flex items-end justify-between">
               <div>
                 <div class="flex gap-1 items-center mb-3">
-                  <span class="h-[2px] w-2 bg-brand sm:w-3"></span>
+                  <span class="h-[2px] w-8 bg-brand"></span>
                   <p class="text-sm font-extrabold text-brand">دانش و تجربه</p>
                 </div>
                 <h2 class="mt-3 text-3xl font-black text-navy">مقالات</h2>
@@ -844,143 +1347,210 @@
               class="swiper articleSwiper rounded-3xl border border-slate-200 bg-white p-5 shadow-card"
             >
               <div class="swiper-wrapper">
-                <article class="swiper-slide">
-                  <img
-                    src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80"
-                    class="h-44 w-full rounded-2xl object-cover"
-                    alt=""
-                  />
-                  <h3 class="mt-4 font-black text-navy">
-                    راهنمای خرید نایلون گلخانه‌ای
-                  </h3>
-                  <p class="mt-3 text-xs leading-6 text-slate-500">
-                    نکات مهم در انتخاب ضخامت و نوع نایلون مناسب.
-                  </p>
-
-                  <!-- Meta -->
-                  <div
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-500"
-                  >
-                    <div class="flex items-center gap-4">
-                      <span class="flex items-center gap-1">
-                        <i data-lucide="calendar" class="size-4"></i>
-                        ۲۵ تیر ۱۴۰۵
-                      </span>
-
-                      <span class="flex items-center gap-1">
-                        <i data-lucide="clock-3" class="size-4"></i>
-                        ۵ دقیقه
-                      </span>
+                <a
+                  href="article.html"
+                  class="swiper-slide group block rounded-2xl"
+                >
+                  <article class="h-full">
+                    <div class="overflow-hidden rounded-2xl">
+                      <img
+                        src="assets/images/articles/1.avif"
+                        class="h-44 w-full object-cover transition duration-500 group-hover:scale-105"
+                        alt="راهنمای خرید نایلون گلخانه‌ای"
+                      />
                     </div>
 
-                    <span class="flex items-center gap-1 font-bold text-brand">
-                      مطالعه
-                      <i data-lucide="arrow-left" class="size-4"></i>
-                    </span>
-                  </div>
-                </article>
-                <article class="swiper-slide">
-                  <img
-                    src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=900&q=80"
-                    class="h-44 w-full rounded-2xl object-cover"
-                    alt=""
-                  />
-                  <h3 class="mt-4 font-black text-navy">
-                    تفاوت نایلون و نایلکس چیست؟
-                  </h3>
-                  <p class="mt-3 text-xs leading-6 text-slate-500">
-                    بررسی تفاوت مواد، کاربرد و ویژگی‌های فنی.
-                  </p>
-                  <!-- Meta -->
-                  <div
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-500"
-                  >
-                    <div class="flex items-center gap-4">
-                      <span class="flex items-center gap-1">
-                        <i data-lucide="calendar" class="size-4"></i>
-                        ۲۵ تیر ۱۴۰۵
-                      </span>
+                    <h3
+                      class="mt-4 font-black text-navy transition group-hover:text-brand"
+                    >
+                      راهنمای خرید نایلون گلخانه‌ای
+                    </h3>
 
-                      <span class="flex items-center gap-1">
-                        <i data-lucide="clock-3" class="size-4"></i>
-                        ۵ دقیقه
-                      </span>
-                    </div>
+                    <p class="mt-3 text-xs leading-6 text-slate-500">
+                      نکات مهم در انتخاب ضخامت و نوع نایلون مناسب.
+                    </p>
 
-                    <span class="flex items-center gap-1 font-bold text-brand">
-                      مطالعه
-                      <i data-lucide="arrow-left" class="size-4"></i>
-                    </span>
-                  </div>
-                </article>
-                <article class="swiper-slide">
-                  <img
-                    src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80"
-                    class="h-44 w-full rounded-2xl object-cover"
-                    alt=""
-                  />
-                  <h3 class="mt-4 font-black text-navy">
-                    بسته‌بندی حرفه‌ای در صنعت
-                  </h3>
-                  <p class="mt-3 text-xs leading-6 text-slate-500">
-                    نقش بسته‌بندی مناسب در کاهش آسیب و هزینه.
-                  </p>
-                  <!-- Meta -->
-                  <div
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-500"
-                  >
-                    <div class="flex items-center gap-4">
-                      <span class="flex items-center gap-1">
-                        <i data-lucide="calendar" class="size-4"></i>
-                        ۲۵ تیر ۱۴۰۵
-                      </span>
+                    <!-- Meta -->
+                    <div
+                      class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-500"
+                    >
+                      <div class="flex items-center gap-4">
+                        <span class="flex items-center gap-1">
+                          <i data-lucide="calendar" class="size-4"></i>
+                          ۲۵ تیر ۱۴۰۵
+                        </span>
 
-                      <span class="flex items-center gap-1">
-                        <i data-lucide="clock-3" class="size-4"></i>
-                        ۵ دقیقه
+                        <span class="flex items-center gap-1">
+                          <i data-lucide="clock-3" class="size-4"></i>
+                          ۵ دقیقه
+                        </span>
+                      </div>
+
+                      <span
+                        class="flex items-center gap-1 font-bold text-brand transition-all duration-300 group-hover:gap-2"
+                      >
+                        مطالعه
+                        <i
+                          data-lucide="arrow-left"
+                          class="size-4 transition-transform duration-300 group-hover:-translate-x-1"
+                        ></i>
                       </span>
                     </div>
-
-                    <span class="flex items-center gap-1 font-bold text-brand">
-                      مطالعه
-                      <i data-lucide="arrow-left" class="size-4"></i>
-                    </span>
-                  </div>
-                </article>
-                <article class="swiper-slide">
-                  <img
-                    src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80"
-                    class="h-44 w-full rounded-2xl object-cover"
-                    alt=""
-                  />
-                  <h3 class="mt-4 font-black text-navy">
-                    کنترل کیفیت محصولات پلیمری
-                  </h3>
-                  <p class="mt-3 text-xs leading-6 text-slate-500">
-                    مهم‌ترین شاخص‌های بررسی کیفیت نایلون.
-                  </p>
-                  <!-- Meta -->
-                  <div
-                    class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-500"
-                  >
-                    <div class="flex items-center gap-4">
-                      <span class="flex items-center gap-1">
-                        <i data-lucide="calendar" class="size-4"></i>
-                        ۲۵ تیر ۱۴۰۵
-                      </span>
-
-                      <span class="flex items-center gap-1">
-                        <i data-lucide="clock-3" class="size-4"></i>
-                        ۵ دقیقه
-                      </span>
+                  </article>
+                </a>
+                <a
+                  href="article.html"
+                  class="swiper-slide group block rounded-2xl"
+                >
+                  <article class="h-full">
+                    <div class="overflow-hidden rounded-2xl">
+                      <img
+                        src="assets/images/articles/2.avif"
+                        class="h-44 w-full object-cover transition duration-500 group-hover:scale-105"
+                        alt="تفاوت نایلون و نایلکس چیست؟"
+                      />
                     </div>
 
-                    <span class="flex items-center gap-1 font-bold text-brand">
-                      مطالعه
-                      <i data-lucide="arrow-left" class="size-4"></i>
-                    </span>
-                  </div>
-                </article>
+                    <h3
+                      class="mt-4 font-black text-navy transition duration-300 group-hover:text-brand"
+                    >
+                      تفاوت نایلون و نایلکس چیست؟
+                    </h3>
+
+                    <p class="mt-3 text-xs leading-6 text-slate-500">
+                      بررسی تفاوت مواد، کاربرد و ویژگی‌های فنی.
+                    </p>
+
+                    <!-- Meta -->
+                    <div
+                      class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-500"
+                    >
+                      <div class="flex items-center gap-4">
+                        <span class="flex items-center gap-1">
+                          <i data-lucide="calendar" class="size-4"></i>
+                          ۲۵ تیر ۱۴۰۵
+                        </span>
+
+                        <span class="flex items-center gap-1">
+                          <i data-lucide="clock-3" class="size-4"></i>
+                          ۵ دقیقه
+                        </span>
+                      </div>
+
+                      <span
+                        class="flex items-center gap-1 font-bold text-brand transition-all duration-300 group-hover:gap-2"
+                      >
+                        مطالعه
+                        <i
+                          data-lucide="arrow-left"
+                          class="size-4 transition-transform duration-300 group-hover:-translate-x-1"
+                        ></i>
+                      </span>
+                    </div>
+                  </article>
+                </a>
+                <a
+                  href="article.html"
+                  class="swiper-slide group block rounded-2xl"
+                >
+                  <article class="h-full">
+                    <div class="overflow-hidden rounded-2xl">
+                      <img
+                        src="assets/images/articles/3.avif"
+                        class="h-44 w-full object-cover transition duration-500 group-hover:scale-105"
+                        alt="بسته‌بندی حرفه‌ای در صنعت"
+                      />
+                    </div>
+
+                    <h3
+                      class="mt-4 font-black text-navy transition duration-300 group-hover:text-brand"
+                    >
+                      بسته‌بندی حرفه‌ای در صنعت
+                    </h3>
+
+                    <p class="mt-3 text-xs leading-6 text-slate-500">
+                      نقش بسته‌بندی مناسب در کاهش آسیب و هزینه.
+                    </p>
+
+                    <!-- Meta -->
+                    <div
+                      class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-500"
+                    >
+                      <div class="flex items-center gap-4">
+                        <span class="flex items-center gap-1">
+                          <i data-lucide="calendar" class="size-4"></i>
+                          ۲۵ تیر ۱۴۰۵
+                        </span>
+
+                        <span class="flex items-center gap-1">
+                          <i data-lucide="clock-3" class="size-4"></i>
+                          ۵ دقیقه
+                        </span>
+                      </div>
+
+                      <span
+                        class="flex items-center gap-1 font-bold text-brand transition-all duration-300 group-hover:gap-2"
+                      >
+                        مطالعه
+                        <i
+                          data-lucide="arrow-left"
+                          class="size-4 transition-transform duration-300 group-hover:-translate-x-1"
+                        ></i>
+                      </span>
+                    </div>
+                  </article>
+                </a>
+                <a
+                  href="article.html"
+                  class="swiper-slide group block rounded-2xl"
+                >
+                  <article class="h-full">
+                    <div class="overflow-hidden rounded-2xl">
+                      <img
+                        src="assets/images/articles/4.avif"
+                        class="h-44 w-full object-cover transition duration-500 group-hover:scale-105"
+                        alt="کنترل کیفیت محصولات پلیمری"
+                      />
+                    </div>
+
+                    <h3
+                      class="mt-4 font-black text-navy transition duration-300 group-hover:text-brand"
+                    >
+                      کنترل کیفیت محصولات پلیمری
+                    </h3>
+
+                    <p class="mt-3 text-xs leading-6 text-slate-500">
+                      مهم‌ترین شاخص‌های بررسی کیفیت نایلون.
+                    </p>
+
+                    <!-- Meta -->
+                    <div
+                      class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-500"
+                    >
+                      <div class="flex items-center gap-4">
+                        <span class="flex items-center gap-1">
+                          <i data-lucide="calendar" class="size-4"></i>
+                          ۲۵ تیر ۱۴۰۵
+                        </span>
+
+                        <span class="flex items-center gap-1">
+                          <i data-lucide="clock-3" class="size-4"></i>
+                          ۵ دقیقه
+                        </span>
+                      </div>
+
+                      <span
+                        class="flex items-center gap-1 font-bold text-brand transition-all duration-300 group-hover:gap-2"
+                      >
+                        مطالعه
+                        <i
+                          data-lucide="arrow-left"
+                          class="size-4 transition-transform duration-300 group-hover:-translate-x-1"
+                        ></i>
+                      </span>
+                    </div>
+                  </article>
+                </a>
               </div>
               <div class="swiper-pagination !relative !bottom-0 mt-8"></div>
             </div>
@@ -1003,7 +1573,7 @@
             <img
               src="assets/images/karnika-logo-white.png"
               alt="کارنیکا"
-              class="h-11 w-auto lg:h-14"
+              class="h-11 w-auto lg:h-10"
             />
           </a>
           <p class="mt-5 text-xs leading-7 text-white/55">
@@ -1061,7 +1631,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="./js/app.js"></script>
   </body>
