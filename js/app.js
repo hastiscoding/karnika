@@ -1,26 +1,62 @@
 document.addEventListener("DOMContentLoaded", () => {
   lucide.createIcons();
 
+  // Menu
+
   const menuBtn = document.querySelector("#menuBtn");
   const mobileMenu = document.querySelector("#mobileMenu");
-  const mobileLinks = mobileMenu.querySelectorAll("a");
+  const mobileMenuClose = document.querySelector("#mobileMenuClose");
+  const mobileMenuBackdrop = document.querySelector("#mobileMenuBackdrop");
+  const mobileLinks = document.querySelectorAll(".mobile-nav-link");
 
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-    menuBtn.innerHTML = mobileMenu.classList.contains("hidden")
-      ? '<i data-lucide="menu"></i>'
-      : '<i data-lucide="x"></i>';
-    lucide.createIcons();
-  });
+  function openMobileMenu() {
+    mobileMenu.classList.remove("translate-x-full");
+
+    mobileMenuBackdrop.classList.remove("invisible", "opacity-0");
+    mobileMenuBackdrop.classList.add("visible", "opacity-100");
+
+    mobileMenu.setAttribute("aria-hidden", "false");
+    menuBtn.setAttribute("aria-expanded", "true");
+    document.body.classList.add("overflow-hidden");
+  }
+
+  function closeMobileMenu() {
+    mobileMenu.classList.add("translate-x-full");
+
+    mobileMenuBackdrop.classList.remove("visible", "opacity-100");
+    mobileMenuBackdrop.classList.add("invisible", "opacity-0");
+
+    mobileMenu.setAttribute("aria-hidden", "true");
+    menuBtn.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("overflow-hidden");
+  }
+
+  menuBtn.addEventListener("click", openMobileMenu);
+  mobileMenuClose.addEventListener("click", closeMobileMenu);
+  mobileMenuBackdrop.addEventListener("click", closeMobileMenu);
 
   mobileLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
-      menuBtn.innerHTML = '<i data-lucide="menu"></i>';
-      lucide.createIcons();
-    });
+    link.addEventListener("click", closeMobileMenu);
   });
 
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key === "Escape" &&
+      mobileMenu.getAttribute("aria-hidden") === "false"
+    ) {
+      closeMobileMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 1024) {
+      closeMobileMenu();
+    }
+  });
+
+  // Mega-Menu
+
+  // Hero-Swiper
   new Swiper(".heroSwiper", {
     loop: true,
     speed: 950,
@@ -35,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
+  // News-Swiper
   new Swiper(".newsSwiper", {
     spaceBetween: 24,
     slidesPerView: 1,
@@ -52,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
+  // Article-Swiper
   new Swiper(".articleSwiper", {
     spaceBetween: 22,
     slidesPerView: 1,
@@ -115,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
   counters.forEach((counter) => counterObserver.observe(counter));
 });
 
-// Awards Swiper
+// Awards-Swiper
 const awardsSwiperElement = document.querySelector(".awardsSwiper");
 
 if (awardsSwiperElement) {
@@ -158,8 +196,7 @@ if (awardsSwiperElement) {
   });
 }
 
-// Awards Modal
-
+// Awards-and-Certifications-Modal
 const certificateSwiper = new Swiper(".certificateSwiper", {
   slidesPerView: 1.15,
   spaceBetween: 16,

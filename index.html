@@ -8,9 +8,7 @@
       content="کارنیکا پلاست ایرانیان تولیدکننده انواع نایلون، نایلکس، فیلم‌های کشاورزی، بسته‌بندی و محصولات پلیمری با بیش از ۸ سال تجربه."
     />
     <title>کارنیکا پلاست ایرانیان</title>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 
     <script>
       tailwind.config = {
         theme: {
@@ -31,7 +29,7 @@
           },
         },
       };
-    </script>
+    </script> -->
 
     <!-- Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,155 +40,15 @@
     <!-- Swiper -->
     <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css" />
 
-    <style>
-      @font-face {
-        font-family: "Vazirmatn";
-        src: url("./assets/fonts/vazirmatn/Vazirmatn-Regular.woff2")
-          format("woff2");
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        overflow-x: hidden;
-      }
-      .container-site {
-        width: calc(100% - 32px);
-        max-width: 1280px;
-        margin-inline: auto;
-      }
-
-      @media (min-width: 1536px) {
-        .container-site {
-          max-width: 1500px;
-        }
-      }
-
-      .section-title::before {
-        content: "";
-        display: inline-block;
-        width: 28px;
-        height: 3px;
-        border-radius: 999px;
-        background: #e31d2b;
-        margin-left: 10px;
-        vertical-align: middle;
-      }
-
-      .product-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          180deg,
-          transparent 28%,
-          rgba(4, 20, 43, 0.9) 100%
-        );
-        z-index: 1;
-      }
-
-      .product-card img {
-        transition: transform 0.6s ease;
-      }
-      .product-card:hover img {
-        transform: scale(1.06);
-      }
-
-      .nav-link.active::after,
-      .nav-link:hover::after {
-        width: 100%;
-      }
-
-      .nav-link::after {
-        content: "";
-        display: block;
-        width: 0;
-        height: 2px;
-        margin-top: 9px;
-        background: #e31d2b;
-        transition: width 0.25s ease;
-      }
-
-      .glass {
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-      }
-
-      .reveal {
-        opacity: 0;
-        transform: translateY(20px);
-        transition:
-          opacity 0.7s ease,
-          transform 0.7s ease;
-      }
-      .reveal.show {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .swiper-pagination-bullet {
-        background: #c7cfdb;
-        opacity: 1;
-      }
-      .swiper-pagination-bullet-active {
-        background: #e31d2b;
-      }
-
-      @media (max-width: 1024px) {
-        .hero-slide::after {
-          bottom: -115px;
-        }
-        .hero-slide::before {
-          bottom: -133px;
-        }
-      }
-
-      @media (max-width: 640px) {
-        .hero-slide::after,
-        .hero-slide::before {
-          display: none;
-        }
-      }
-      .certificate-pagination .swiper-pagination-bullet {
-        width: 7px;
-        height: 7px;
-        margin: 0 4px !important;
-        background: #94a3b8;
-        opacity: 0.45;
-        transition:
-          width 0.3s ease,
-          opacity 0.3s ease,
-          background-color 0.3s ease;
-      }
-
-      .certificate-pagination .swiper-pagination-bullet-active {
-        width: 24px;
-        border-radius: 999px;
-        background: #e31d2b;
-        opacity: 1;
-      }
-
-      .certificateSwiper .swiper-slide {
-        height: auto;
-      }
-
-      .certificate-card {
-        appearance: none;
-        border: 0;
-        padding: 0;
-      }
-    </style>
+    <!-- Compiled Tailwind CSS -->
+    <link rel="stylesheet" href="./dist/output.css" />
   </head>
 
   <body class="font-sans text-slate-800 antialiased">
     <!-- Header -->
     <header
       id="siteHeader"
-      class="sticky inset-x-0 top-0 z-50 bg-navy text-white transition-all duration-300"
+      class="sticky inset-x-0 top-0 z-50 bg-navy text-white transition-all duration-300 shadow-soft"
     >
       <div
         class="container-site flex h-20 items-center justify-between gap-6 lg:h-24"
@@ -207,34 +65,49 @@
           />
         </a>
 
+        <!-- Navigation-Desktop -->
         <nav class="hidden items-center gap-8 text-sm font-semibold lg:flex">
           <a class="nav-link active" href="#home">خانه</a>
           <a class="nav-link" href="#products">محصولات</a>
+          <a class="nav-link" href="#catalog">کاتالوگ</a>
           <a class="nav-link" href="#about">درباره ما</a>
-          <a class="nav-link" href="#news">اخبار و رسانه</a>
+          <a class="nav-link" href="#news">اخبار کارنیکا</a>
           <a class="nav-link" href="#contact">تماس با ما</a>
+          <a class="nav-link" href="#blog">بلاگ</a>
         </nav>
 
-        <div
-          class="group relative hidden size-10 shrink-0 items-center lg:flex"
-        >
-          <div
-            class="absolute left-0 top-1/2 flex w-10 -translate-y-1/2 items-center overflow-hidden rounded-xl border border-white/10 bg-navy transition-all duration-700 ease-out group-hover:w-72 group-focus-within:w-72"
-          >
-            <button
-              type="button"
-              aria-label="جستجو"
-              class="grid size-10 shrink-0 place-items-center text-white transition hover:bg-white/10"
+        <div class="hidden items-center gap-2 lg:flex">
+          <!-- جستجو -->
+          <div class="group relative size-10 shrink-0">
+            <div
+              class="absolute left-0 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center overflow-hidden rounded-xl border border-white/10 bg-navy transition-all duration-700 ease-out group-hover:w-72 group-focus-within:w-72"
             >
-              <i data-lucide="search" class="size-4"></i>
-            </button>
+              <button
+                type="button"
+                aria-label="جستجو"
+                class="grid size-10 shrink-0 place-items-center text-white transition hover:bg-white/10"
+              >
+                <i data-lucide="search" class="size-4"></i>
+              </button>
 
-            <input
-              type="search"
-              placeholder="جستجوی محصولات..."
-              class="min-w-0 flex-1 bg-transparent px-0 text-sm text-white opacity-0 outline-none placeholder:text-white/60 transition-all duration-700 group-hover:px-3 group-hover:opacity-100 group-focus-within:px-3 group-focus-within:opacity-100"
-            />
+              <input
+                type="search"
+                placeholder="جستجوی محصولات..."
+                class="min-w-0 flex-1 bg-transparent px-0 text-sm text-white opacity-0 outline-none placeholder:text-white/60 transition-all duration-700 group-hover:px-3 group-hover:opacity-100 group-focus-within:px-3 group-focus-within:opacity-100"
+              />
+            </div>
           </div>
+          <!-- تماس فوری -->
+          <a
+            href="tel:+982144556677"
+            dir="ltr"
+            class="flex h-10 items-center gap-2 rounded-xl border border-white/10 bg-navy px-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            aria-label="تماس فوری با کارنیکا"
+          >
+            <i data-lucide="phone" class="size-4 shrink-0"></i>
+
+            <span>۰۲۱-۴۴۵۵۶۶۷۷</span>
+          </a>
         </div>
 
         <button
@@ -242,33 +115,139 @@
           type="button"
           class="relative z-50 grid size-11 place-items-center rounded-xl border border-white/15 lg:hidden"
           aria-label="باز کردن منو"
+          aria-expanded="false"
         >
           <i data-lucide="menu"></i>
         </button>
       </div>
 
+      <!-- Mobile menu backdrop -->
       <div
+        id="mobileMenuBackdrop"
+        class="fixed inset-0 z-[60] bg-navy/60 opacity-0 invisible backdrop-blur-sm transition-all duration-300 lg:hidden"
+      ></div>
+
+      <!-- Mobile offcanvas -->
+      <aside
         id="mobileMenu"
-        class="hidden border-t border-white/10 bg-navy px-4 pb-6 pt-4 lg:hidden"
+        class="fixed right-0 top-0 z-[70] flex h-dvh w-[85%] max-w-[360px] translate-x-full flex-col bg-navy text-white shadow-2xl transition-transform duration-500 ease-out lg:hidden"
+        aria-hidden="true"
       >
-        <nav class="container-site grid gap-2 text-sm font-bold">
-          <a class="rounded-xl px-4 py-3 hover:bg-white/10" href="#home"
-            >خانه</a
+        <!-- Offcanvas header -->
+        <div
+          class="flex h-20 shrink-0 items-center justify-between border-b border-white/10 px-5"
+        >
+          <a href="#home" aria-label="کارنیکا">
+            <img
+              src="assets/images/karnika-logo-white.png"
+              alt="کارنیکا"
+              class="h-10 w-auto"
+            />
+          </a>
+
+          <button
+            id="mobileMenuClose"
+            type="button"
+            class="grid size-11 place-items-center rounded-xl border border-white/15 transition hover:bg-white/10"
+            aria-label="بستن منو"
           >
-          <a class="rounded-xl px-4 py-3 hover:bg-white/10" href="#products"
-            >محصولات</a
+            <i data-lucide="x" class="size-5"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Search -->
+        <form
+          action="#"
+          role="search"
+          class="shrink-0 border-b border-white/10 px-4 py-4"
+        >
+          <div
+            class="flex h-12 items-center overflow-hidden rounded-xl border border-white/10 bg-white/5 transition focus-within:border-white/25 focus-within:bg-white/10"
           >
-          <a class="rounded-xl px-4 py-3 hover:bg-white/10" href="#about"
-            >درباره ما</a
-          >
-          <a class="rounded-xl px-4 py-3 hover:bg-white/10" href="#news"
-            >اخبار و رسانه</a
-          >
-          <a class="rounded-xl px-4 py-3 hover:bg-white/10" href="#contact"
-            >تماس با ما</a
-          >
+            <button
+              type="submit"
+              class="grid size-12 shrink-0 place-items-center text-white"
+              aria-label="جستجو"
+            >
+              <i data-lucide="search" class="size-4"></i>
+            </button>
+
+            <input
+              type="search"
+              name="search"
+              placeholder="جستجوی محصولات..."
+              class="h-full min-w-0 flex-1 bg-transparent pl-4 pr-0 text-sm text-white outline-none placeholder:text-white/50"
+            />
+          </div>
+        </form>
+
+        <!-- Navigation-Mobile -->
+        <nav class="flex-1 overflow-y-auto px-4 py-5 text-sm font-bold">
+          <div class="grid gap-1">
+            <a
+              class="mobile-nav-link rounded-xl bg-white/10 px-4 py-3.5"
+              href="#home"
+            >
+              خانه
+            </a>
+
+            <a
+              class="mobile-nav-link rounded-xl px-4 py-3.5 transition hover:bg-white/10"
+              href="#products"
+            >
+              محصولات
+            </a>
+
+            <a
+              class="mobile-nav-link rounded-xl px-4 py-3.5 transition hover:bg-white/10"
+              href="#catalog"
+            >
+              کاتالوگ
+            </a>
+
+            <a
+              class="mobile-nav-link rounded-xl px-4 py-3.5 transition hover:bg-white/10"
+              href="#about"
+            >
+              درباره ما
+            </a>
+
+            <a
+              class="mobile-nav-link rounded-xl px-4 py-3.5 transition hover:bg-white/10"
+              href="#news"
+            >
+              اخبار کارنیکا
+            </a>
+
+            <a
+              class="mobile-nav-link rounded-xl px-4 py-3.5 transition hover:bg-white/10"
+              href="#contact"
+            >
+              تماس با ما
+            </a>
+
+            <a
+              class="mobile-nav-link rounded-xl px-4 py-3.5 transition hover:bg-white/10"
+              href="#blog"
+            >
+              بلاگ
+            </a>
+          </div>
         </nav>
-      </div>
+
+        <!-- Phone -->
+        <div class="shrink-0 border-t border-white/10 p-4">
+          <a
+            href="tel:+982144556677"
+            dir="ltr"
+            class="flex h-12 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 text-sm font-semibold transition hover:bg-white/10"
+            aria-label="تماس فوری با کارنیکا"
+          >
+            <i data-lucide="phone" class="size-4"></i>
+            <span>۰۲۱-۴۴۵۵۶۶۷۷</span>
+          </a>
+        </div>
+      </aside>
     </header>
 
     <main>
