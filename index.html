@@ -32,8 +32,6 @@
     </script> -->
 
     <!-- Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link rel="icon" href="assets/images/favicon.ico" />
 
@@ -61,7 +59,7 @@
           <img
             src="assets/images/karnika-logo-white.png"
             alt="کارنیکا"
-            class="h-11 w-auto lg:h-12"
+            class="h-8 w-auto lg:h-12"
           />
         </a>
 
@@ -141,7 +139,7 @@
             <img
               src="assets/images/karnika-logo-white.png"
               alt="کارنیکا"
-              class="h-10 w-auto"
+              class="h-8 w-auto"
             />
           </a>
 
@@ -175,7 +173,7 @@
             <input
               type="search"
               name="search"
-              placeholder="جستجوی محصولات..."
+              placeholder="جستجوی محصولات ..."
               class="h-full min-w-0 flex-1 bg-transparent pl-4 pr-0 text-sm text-white outline-none placeholder:text-white/50"
             />
           </div>
@@ -628,19 +626,22 @@
             </div>
           </div>
 
-          <div class="relative reveal pb-5 pl-5">
+          <div class="relative reveal pb-3 pl-3 sm:pb-5 sm:pl-5">
+            <!-- پس‌زمینه سرمه‌ای -->
             <div
-              class="absolute bottom-0 left-0 h-[92%] w-[88%] rounded-2xl bg-navy"
+              class="absolute bottom-0 left-0 h-[92%] w-[92%] rounded-2xl bg-navy sm:w-[88%]"
             ></div>
 
+            <!-- نوار قرمز -->
             <div
-              class="absolute left-0 top-8 h-52 w-7 rounded-l-xl bg-brand"
+              class="absolute left-0 top-6 h-32 w-4 rounded-l-lg bg-brand sm:top-8 sm:h-52 sm:w-7 sm:rounded-l-xl"
             ></div>
 
+            <!-- تصویر -->
             <img
               src="assets/images/about/about.avif"
               alt="کارخانه کارنیکا"
-              class="relative z-10 aspect-[5/3] w-full rounded-2xl object-cover shadow-soft"
+              class="relative z-10 aspect-[4/3] w-full rounded-2xl object-cover shadow-soft sm:aspect-[5/3]"
             />
           </div>
         </div>
@@ -663,12 +664,12 @@
             </div>
             <div class="hidden gap-2 sm:flex">
               <button
-                class="news-prev grid size-10 place-items-center rounded-full bg-white text-navy"
+                class="news-prev grid size-10 place-items-center rounded-full bg-white text-navy hover:bg-slate-200"
               >
                 <i data-lucide="chevron-right"></i>
               </button>
               <button
-                class="news-next grid size-10 place-items-center rounded-full bg-white text-navy"
+                class="news-next grid size-10 place-items-center rounded-full bg-white text-navy hover:bg-slate-200"
               >
                 <i data-lucide="chevron-left"></i>
               </button>
@@ -717,6 +718,20 @@
                 <p class="mt-3 text-xs leading-6 text-white/60">
                   چرا انتخاب مواد اولیه مناسب در کیفیت نهایی محصول تعیین‌کننده
                   است.
+                </p>
+              </article>
+
+              <article class="swiper-slide">
+                <img
+                  src="assets/images/news/4.avif"
+                  class="h-48 w-full rounded-2xl object-cover"
+                  alt=""
+                />
+                <h3 class="mt-5 text-base font-black">
+                  بهبود فرآیندهای کنترل کیفیت
+                </h3>
+                <p class="mt-3 text-xs leading-6 text-white/60">
+                  نگاهی به استانداردهای کنترل محصول در کارخانه کارنیکا.
                 </p>
               </article>
 
@@ -864,30 +879,31 @@
             <div
               class="mx-4 mb-4 grid overflow-hidden rounded-[24px] bg-navy text-white sm:mx-6 sm:mb-6 sm:grid-cols-2 lg:mx-8 lg:mb-8 lg:grid-cols-4"
             >
-              <!-- Item -->
+              <!-- Item 1 -->
               <div
-                class="flex min-h-[120px] items-center justify-center gap-4 border-b border-white/10 p-5 sm:border-l lg:border-b-0"
+                class="grid min-h-[120px] grid-cols-[44px_1fr] items-center gap-4 border-b border-white/10 px-6 py-5 sm:border-l lg:border-b-0"
               >
                 <span
-                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-white/5"
+                  class="grid size-11 place-items-center rounded-xl bg-white/5"
                 >
                   <i data-lucide="users" class="size-7 text-brand"></i>
                 </span>
 
-                <div>
+                <div class="min-w-0">
                   <p class="text-2xl font-black">۱۲ هزار+</p>
+
                   <p class="mt-1 text-xs leading-5 text-slate-300">
                     بازدیدکننده نمایشگاه
                   </p>
                 </div>
               </div>
 
-              <!-- Item -->
+              <!-- Item 2 -->
               <div
-                class="flex min-h-[120px] items-center justify-center gap-4 border-b border-white/10 p-5 lg:border-b-0 lg:border-l"
+                class="grid min-h-[120px] grid-cols-[44px_1fr] items-center gap-4 border-b border-white/10 px-6 py-5 lg:border-b-0 lg:border-l"
               >
                 <span
-                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-white/5"
+                  class="grid size-11 place-items-center rounded-xl bg-white/5"
                 >
                   <i
                     data-lucide="briefcase-business"
@@ -895,44 +911,47 @@
                   ></i>
                 </span>
 
-                <div>
+                <div class="min-w-0">
                   <p class="text-2xl font-black">۳۲+</p>
+
                   <p class="mt-1 text-xs leading-5 text-slate-300">
                     دیدار تخصصی
                   </p>
                 </div>
               </div>
 
-              <!-- Item -->
+              <!-- Item 3 -->
               <div
-                class="flex min-h-[120px] items-center justify-center gap-4 border-b border-white/10 p-5 sm:border-b-0 sm:border-l"
+                class="grid min-h-[120px] grid-cols-[44px_1fr] items-center gap-4 border-b border-white/10 px-6 py-5 sm:border-b-0 sm:border-l"
               >
                 <span
-                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-white/5"
+                  class="grid size-11 place-items-center rounded-xl bg-white/5"
                 >
                   <i data-lucide="package-open" class="size-7 text-brand"></i>
                 </span>
 
-                <div>
+                <div class="min-w-0">
                   <p class="text-2xl font-black">۵</p>
+
                   <p class="mt-1 text-xs leading-5 text-slate-300">
                     محصول جدید معرفی‌شده
                   </p>
                 </div>
               </div>
 
-              <!-- Item -->
+              <!-- Item 4 -->
               <div
-                class="flex min-h-[120px] items-center justify-center gap-4 p-5"
+                class="grid min-h-[120px] grid-cols-[44px_1fr] items-center gap-4 px-6 py-5"
               >
                 <span
-                  class="grid size-11 shrink-0 place-items-center rounded-xl bg-white/5"
+                  class="grid size-11 place-items-center rounded-xl bg-white/5"
                 >
                   <i data-lucide="handshake" class="size-7 text-brand"></i>
                 </span>
 
-                <div>
+                <div class="min-w-0">
                   <p class="text-2xl font-black">۱۸+</p>
+
                   <p class="mt-1 text-xs leading-5 text-slate-300">
                     تفاهم‌نامه همکاری
                   </p>
@@ -970,18 +989,18 @@
             <div class="hidden items-center gap-2 sm:flex">
               <button
                 type="button"
-                class="certificate-prev grid size-11 place-items-center rounded-full border border-slate-200 bg-white text-navy transition hover:border-navy hover:bg-navy hover:text-white"
+                class="certificate-prev grid size-10 place-items-center rounded-full bg-slate-200 text-navy transition hover:border-navy hover:bg-navy hover:text-white"
                 aria-label="اسلاید قبلی"
               >
-                <i data-lucide="chevron-right" class="size-5"></i>
+                <i data-lucide="chevron-right"></i>
               </button>
 
               <button
                 type="button"
-                class="certificate-next grid size-11 place-items-center rounded-full border border-slate-200 bg-white text-navy transition hover:border-navy hover:bg-navy hover:text-white"
+                class="certificate-next grid size-10 place-items-center rounded-full bg-slate-200 text-navy transition hover:border-navy hover:bg-navy hover:text-white"
                 aria-label="اسلاید بعدی"
               >
-                <i data-lucide="chevron-left" class="size-5"></i>
+                <i data-lucide="chevron-left"></i>
               </button>
             </div>
           </div>
@@ -1309,14 +1328,14 @@
                 </div>
                 <h2 class="mt-3 text-3xl font-black text-navy">مقالات</h2>
               </div>
-              <div class="flex gap-2">
+              <div class="hidden sm:flex gap-2">
                 <button
-                  class="article-prev grid size-10 place-items-center rounded-full bg-slate-200 text-navy"
+                  class="article-prev grid size-10 place-items-center rounded-full bg-slate-200 text-navy transition hover:border-navy hover:bg-navy hover:text-white"
                 >
                   <i data-lucide="chevron-right"></i>
                 </button>
                 <button
-                  class="article-next grid size-10 place-items-center rounded-full bg-slate-200 text-navy"
+                  class="article-next grid size-10 place-items-center rounded-full bg-slate-200 text-navy transition hover:border-navy hover:bg-navy hover:text-white"
                 >
                   <i data-lucide="chevron-left"></i>
                 </button>
@@ -1558,8 +1577,8 @@
                     </article>
                   </a>
                 </div>
+                <div class="swiper-pagination !relative !bottom-0 mt-8"></div>
               </div>
-              <div class="swiper-pagination !relative !bottom-0 mt-8"></div>
             </div>
           </div>
         </div>
@@ -1580,7 +1599,7 @@
             <img
               src="assets/images/karnika-logo-white.png"
               alt="کارنیکا"
-              class="h-11 w-auto lg:h-10"
+              class="h-8 w-auto lg:h-10"
             />
           </a>
           <p class="mt-5 text-xs leading-7 text-white/55">
@@ -1639,7 +1658,7 @@
 
     <!-- Scripts -->
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="./assets/js/lucide.min.js"></script>
     <script src="./js/app.js"></script>
   </body>
 </html>
