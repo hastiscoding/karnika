@@ -46,13 +46,13 @@
     <!-- Header -->
     <header
       id="siteHeader"
-      class="sticky inset-x-0 top-0 z-50 bg-navy text-white transition-all duration-300 shadow-soft"
+      class="relative sticky inset-x-0 top-0 z-50 bg-navy text-white transition-all duration-300 shadow-soft"
     >
       <div
-        class="container-site flex h-20 items-center justify-between gap-6 lg:h-24"
+        class="container-site relative flex h-20 items-center justify-between gap-6 lg:h-24"
       >
         <a
-          href="#home"
+          href="./"
           class="relative z-50 flex items-center"
           aria-label="کارنیکا"
         >
@@ -63,15 +63,487 @@
           />
         </a>
 
-        <!-- Navigation-Desktop -->
-        <nav class="hidden items-center gap-8 text-sm font-semibold lg:flex">
-          <a class="nav-link active" href="#home">خانه</a>
-          <a class="nav-link" href="#products">محصولات</a>
-          <a class="nav-link" href="#catalog">کاتالوگ</a>
-          <a class="nav-link" href="#about">درباره ما</a>
-          <a class="nav-link" href="#news">اخبار کارنیکا</a>
-          <a class="nav-link" href="#contact">تماس با ما</a>
-          <a class="nav-link" href="#blog">بلاگ</a>
+        <!-- Navigation Desktop -->
+        <nav
+          class="hidden h-full items-center gap-8 lg:flex"
+          aria-label="منوی اصلی"
+        >
+          <a class="nav-link active" href="./">خانه</a>
+
+          <!-- Products Mega Menu -->
+          <div class="group flex h-full items-center">
+            <!-- Menu Trigger -->
+            <a href="#" class="nav-link" aria-haspopup="true">
+              <span>محصولات</span>
+            </a>
+
+            <!-- Mega Menu Wrapper -->
+            <div
+              class="pointer-events-none absolute inset-x-0 top-full z-50 translate-y-2 opacity-0 invisible transition-all duration-300 group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100"
+            >
+              <!-- Hover Bridge -->
+
+              <div
+                class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft"
+              >
+                <div class="p-7 xl:p-8">
+                  <!-- Mega Menu Header -->
+                  <div
+                    class="mb-7 flex items-center justify-between border-b border-slate-100 pb-5"
+                  >
+                    <div>
+                      <p class="text-xs font-bold text-brand">
+                        محصولات کارنیکا
+                      </p>
+
+                      <h2 class="mt-1 text-lg font-black text-navy">
+                        دسته‌بندی محصولات
+                      </h2>
+                    </div>
+
+                    <a
+                      href="/products/"
+                      class="group/all flex items-center gap-2 text-xs font-bold text-navy transition hover:text-brand"
+                    >
+                      مشاهده همه محصولات
+
+                      <svg
+                        class="size-4 transition-transform group-hover/all:-translate-x-1"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M19 12H5m7 7-7-7 7-7"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+
+                  <!-- Categories -->
+                  <div class="grid grid-cols-4 gap-0">
+                    <!-- Nylon Bags -->
+                    <div class="px-5 first:pr-0">
+                      <a
+                        href="/products/nylon-bags/"
+                        class="mb-4 flex items-center gap-3"
+                      >
+                        <span
+                          class="flex size-9 items-center justify-center rounded-lg bg-brand/10 text-brand"
+                        >
+                          <svg
+                            class="size-5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            aria-hidden="true"
+                          >
+                            <path
+                              d="M6 8h12l-1 12H7L6 8Z"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M9 8V6a3 3 0 0 1 6 0v2"
+                              stroke-linecap="round"
+                            />
+                          </svg>
+                        </span>
+
+                        <span class="font-black text-navy">
+                          کیسه‌های نایلکسی
+                        </span>
+                      </a>
+
+                      <ul class="space-y-1">
+                        <li>
+                          <a
+                            href="/products/nylon-bags/t-shirt-bag/"
+                            class="mega-menu-link"
+                          >
+                            کیسه نایلکس دسته رکابی
+                          </a>
+                        </li>
+
+                        <li>
+                          <a
+                            href="/products/nylon-bags/simple/"
+                            class="mega-menu-link"
+                          >
+                            کیسه نایلکس ساده
+                          </a>
+                        </li>
+
+                        <li>
+                          <a
+                            href="/products/nylon-bags/milky/"
+                            class="mega-menu-link"
+                          >
+                            کیسه نایلکس شیری
+                          </a>
+                        </li>
+
+                        <li>
+                          <a
+                            href="/products/nylon-bags/colored/"
+                            class="mega-menu-link"
+                          >
+                            کیسه نایلکس رنگی
+                          </a>
+                        </li>
+
+                        <li>
+                          <a
+                            href="/products/nylon-bags/export/"
+                            class="mega-menu-link"
+                          >
+                            کیسه نایلکس صادراتی
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- Agriculture -->
+                    <div class="border-r border-slate-100 px-5">
+                      <a
+                        href="/products/agriculture/"
+                        class="mb-4 flex items-center gap-3"
+                      >
+                        <span
+                          class="flex size-9 items-center justify-center rounded-lg bg-brand/10 text-brand"
+                        >
+                          <svg
+                            class="size-5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            aria-hidden="true"
+                          >
+                            <path d="M12 21V10" stroke-linecap="round" />
+                            <path
+                              d="M12 14c-4 0-7-2.5-7-6 4 0 7 2.5 7 6Z"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M12 10c0-4 2.5-7 7-7 0 4-2.5 7-7 7Z"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+
+                        <span class="font-black text-navy">
+                          محصولات کشاورزی
+                        </span>
+                      </a>
+
+                      <div class="grid grid-cols-2 gap-x-4">
+                        <ul class="space-y-1">
+                          <li>
+                            <a
+                              href="/products/agriculture/greenhouse-film/"
+                              class="mega-menu-link"
+                            >
+                              نایلون عریض گلخانه‌ای
+                            </a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/products/agriculture/export-film/"
+                              class="mega-menu-link"
+                            >
+                              نایلون عریض صادراتی
+                            </a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/products/agriculture/agricultural-bale/"
+                              class="mega-menu-link"
+                            >
+                              طاقه کشاورزی
+                            </a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/products/agriculture/agricultural-roll/"
+                              class="mega-menu-link"
+                            >
+                              رول کشاورزی
+                            </a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/products/agriculture/tubular-shrink/"
+                              class="mega-menu-link"
+                            >
+                              شیرینگ روده‌ای
+                            </a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/products/agriculture/cut-shrink/"
+                              class="mega-menu-link"
+                            >
+                              شیرینگ برشی
+                            </a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/products/agriculture/agricultural-bag/"
+                              class="mega-menu-link"
+                            >
+                              کیسه کشاورزی
+                            </a>
+                          </li>
+                        </ul>
+
+                        <ul class="space-y-1">
+                          <li>
+                            <a
+                              href="/products/agriculture/cucumber-bag/"
+                              class="mega-menu-link"
+                            >
+                              کیسه خیاری
+                            </a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/products/agriculture/eggplant-bag/"
+                              class="mega-menu-link"
+                            >
+                              کیسه بادمجانی
+                            </a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/products/agriculture/carrot-bag/"
+                              class="mega-menu-link"
+                            >
+                              کیسه هویجی
+                            </a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/products/agriculture/nut-bag/"
+                              class="mega-menu-link"
+                            >
+                              کیسه آجیلی
+                            </a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/products/agriculture/cabbage-bag/"
+                              class="mega-menu-link"
+                            >
+                              کیسه کلمی
+                            </a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/products/agriculture/banana-carton-bag/"
+                              class="mega-menu-link"
+                            >
+                              کیسه کارتن موزی
+                            </a>
+                          </li>
+
+                          <li>
+                            <a
+                              href="/products/agriculture/forage-bag/"
+                              class="mega-menu-link"
+                            >
+                              کیسه علوفه
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <!-- Industrial -->
+                    <div class="border-r border-slate-100 px-5">
+                      <a
+                        href="/products/industrial/"
+                        class="mb-4 flex items-center gap-3"
+                      >
+                        <span
+                          class="flex size-9 items-center justify-center rounded-lg bg-brand/10 text-brand"
+                        >
+                          <svg
+                            class="size-5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            aria-hidden="true"
+                          >
+                            <path
+                              d="M4 21V10l5 3V9l5 3V5h4v16H4Z"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M8 17h1m3 0h1m3 0h1"
+                              stroke-linecap="round"
+                            />
+                          </svg>
+                        </span>
+
+                        <span class="font-black text-navy">
+                          محصولات صنعتی
+                        </span>
+                      </a>
+
+                      <ul class="space-y-1">
+                        <li>
+                          <a
+                            href="/products/industrial/cut-shrink/"
+                            class="mega-menu-link"
+                          >
+                            نایلون شیرینگ صنعتی برشی
+                          </a>
+                        </li>
+
+                        <li>
+                          <a
+                            href="/products/industrial/tubular-shrink/"
+                            class="mega-menu-link"
+                          >
+                            نایلون شیرینگ صنعتی روده‌ای
+                          </a>
+                        </li>
+
+                        <li>
+                          <a
+                            href="/products/industrial/garbage-bag/black/"
+                            class="mega-menu-link"
+                          >
+                            کیسه زباله صنعتی مشکی
+                          </a>
+                        </li>
+
+                        <li>
+                          <a
+                            href="/products/industrial/garbage-bag/colored/"
+                            class="mega-menu-link"
+                          >
+                            کیسه زباله صنعتی رنگی
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- Household -->
+                    <div class="border-r border-slate-100 pr-5">
+                      <a
+                        href="/products/household/"
+                        class="mb-4 flex items-center gap-3"
+                      >
+                        <span
+                          class="flex size-9 items-center justify-center rounded-lg bg-brand/10 text-brand"
+                        >
+                          <svg
+                            class="size-5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            aria-hidden="true"
+                          >
+                            <path
+                              d="M3 11 12 4l9 7"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M5 10v10h14V10M9 20v-6h6v6"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+
+                        <span class="font-black text-navy">
+                          محصولات خانگی
+                        </span>
+                      </a>
+
+                      <ul class="space-y-1">
+                        <li>
+                          <a
+                            href="/products/household/disposable-tablecloth/"
+                            class="mega-menu-link"
+                          >
+                            سفره یک‌بار مصرف
+                          </a>
+                        </li>
+
+                        <li>
+                          <a
+                            href="/products/household/disposable-gloves/"
+                            class="mega-menu-link"
+                          >
+                            دستکش یک‌بار مصرف
+                          </a>
+                        </li>
+
+                        <li>
+                          <a
+                            href="/products/household/packaged-garbage-bag/"
+                            class="mega-menu-link"
+                          >
+                            کیسه زباله بسته‌بندی
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bottom CTA -->
+                <div
+                  class="mx-4 mb-4 flex items-center justify-between rounded-2xl bg-gradient-to-l from-slate-100 to-blue-50 px-8 py-4"
+                >
+                  <div>
+                    <p class="font-extrabold text-navy">
+                      محصول مورد نظرتان را پیدا نکردید؟
+                    </p>
+
+                    <p class="mt-1 text-xs font-normal text-slate-500">
+                      برای تولید اختصاصی در ابعاد و مشخصات دلخواه با کارشناسان
+                      ما در ارتباط باشید.
+                    </p>
+                  </div>
+
+                  <a
+                    href="/contact/"
+                    class="flex items-center gap-3 rounded-xl bg-navy px-6 py-3.5 font-extrabold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-navy2 hover:shadow-lg"
+                  >
+                    <i data-lucide="headphones" class="size-5"></i>
+                    مشاوره و سفارش
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a class="nav-link" href="/catalog/">کاتالوگ</a>
+          <a class="nav-link" href="/about/">درباره ما</a>
+          <a class="nav-link" href="/news/">اخبار کارنیکا</a>
+          <a class="nav-link" href="/contact/">تماس با ما</a>
+          <a class="nav-link" href="/blogs/">بلاگ</a>
         </nav>
 
         <div class="hidden items-center gap-2 lg:flex">
@@ -184,49 +656,49 @@
           <div class="grid gap-1">
             <a
               class="mobile-nav-link rounded-xl bg-white/10 px-4 py-3.5"
-              href="#home"
+              href="/"
             >
               خانه
             </a>
 
             <a
               class="mobile-nav-link rounded-xl px-4 py-3.5 transition hover:bg-white/10"
-              href="#products"
+              href="/products/"
             >
               محصولات
             </a>
 
             <a
               class="mobile-nav-link rounded-xl px-4 py-3.5 transition hover:bg-white/10"
-              href="#catalog"
+              href="/catalog/"
             >
               کاتالوگ
             </a>
 
             <a
               class="mobile-nav-link rounded-xl px-4 py-3.5 transition hover:bg-white/10"
-              href="#about"
+              href="/about/"
             >
               درباره ما
             </a>
 
             <a
               class="mobile-nav-link rounded-xl px-4 py-3.5 transition hover:bg-white/10"
-              href="#news"
+              href="/news/"
             >
               اخبار کارنیکا
             </a>
 
             <a
               class="mobile-nav-link rounded-xl px-4 py-3.5 transition hover:bg-white/10"
-              href="#contact"
+              href="/contact/"
             >
               تماس با ما
             </a>
 
             <a
               class="mobile-nav-link rounded-xl px-4 py-3.5 transition hover:bg-white/10"
-              href="#blog"
+              href="/blogs/"
             >
               بلاگ
             </a>
@@ -650,7 +1122,7 @@
       <!-- News -->
       <section id="news" class="bg-white py-16 lg:py-24">
         <div
-          class="container-site rounded-3xl bg-navy px-5 py-10 text-white shadow-soft sm:px-8 lg:px-12"
+          class="container-site reveal rounded-3xl bg-navy px-5 py-10 text-white shadow-soft sm:px-8 lg:px-12"
         >
           <div class="mb-8 flex items-end justify-between gap-4">
             <div>
@@ -756,7 +1228,7 @@
 
       <!-- Event -->
       <section class="relative overflow-hidden bg-white py-16 lg:py-24">
-        <div class="container-site relative">
+        <div class="container-site reveal relative">
           <div
             class="overflow-hidden rounded-[32px] border border-slate-200 bg-[#fafafa] shadow-soft"
           >
@@ -964,7 +1436,7 @@
 
       <!-- Certificates -->
       <section class="bg-white py-16 lg:py-24">
-        <div class="container-site">
+        <div class="container-site reveal">
           <!-- Section Header -->
           <div class="mb-10 flex items-end justify-between gap-6">
             <div>
@@ -1264,7 +1736,7 @@
       <!-- Stats -->
       <section class="bg-white py-8">
         <div
-          class="container-site rounded-2xl bg-navy px-5 py-10 text-white sm:px-8"
+          class="container-site reveal rounded-2xl bg-navy px-5 py-10 text-white sm:px-8"
         >
           <div class="mb-10 flex gap-2 items-center justify-center">
             <span class="h-[2px] w-8 bg-brand"></span>
@@ -1319,7 +1791,7 @@
       <!-- Articles -->
       <section class="bg-navy">
         <div class="bg-white rounded-br-[44px] py-20 sm:rounded-br-[70px]">
-          <div class="container-site">
+          <div class="container-site reveal">
             <div class="mb-8 flex items-end justify-between">
               <div>
                 <div class="flex gap-1 items-center mb-3">
@@ -1592,7 +2064,7 @@
       >
         <div>
           <a
-            href="#home"
+            href="/"
             class="relative z-50 flex items-center"
             aria-label="کارنیکا"
           >
@@ -1621,10 +2093,14 @@
         <div>
           <h3 class="font-black">دسترسی سریع</h3>
           <ul class="mt-5 space-y-3 text-xs text-white/55">
-            <li><a href="#home" class="hover:text-white">خانه</a></li>
-            <li><a href="#about" class="hover:text-white">درباره ما</a></li>
-            <li><a href="#news" class="hover:text-white">اخبار و رسانه</a></li>
-            <li><a href="#contact" class="hover:text-white">تماس با ما</a></li>
+            <li><a href="/" class="hover:text-white">خانه</a></li>
+            <li><a href="/about/" class="hover:text-white">درباره ما</a></li>
+            <li>
+              <a href="/news/" class="hover:text-white">اخبار کارنیکا</a>
+            </li>
+            <li>
+              <a href="/contact/" class="hover:text-white">تماس با ما</a>
+            </li>
           </ul>
         </div>
 

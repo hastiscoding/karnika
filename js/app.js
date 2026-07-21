@@ -107,6 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
+  // Reveal-Home-Sections-smoothly
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
