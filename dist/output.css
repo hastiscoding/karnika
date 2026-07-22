@@ -278,6 +278,9 @@
   .bottom-4 {
     bottom: calc(var(--spacing) * 4);
   }
+  .bottom-6 {
+    bottom: calc(var(--spacing) * 6);
+  }
   .bottom-12 {
     bottom: calc(var(--spacing) * 12);
   }
@@ -1439,6 +1442,9 @@
     .sm\:bottom-6 {
       bottom: calc(var(--spacing) * 6);
     }
+    .sm\:bottom-10 {
+      bottom: calc(var(--spacing) * 10);
+    }
     .sm\:bottom-16 {
       bottom: calc(var(--spacing) * 16);
     }
@@ -1579,6 +1585,9 @@
     }
   }
   @media (width >= 64rem) {
+    .lg\:bottom-12 {
+      bottom: calc(var(--spacing) * 12);
+    }
     .lg\:mx-8 {
       margin-inline: calc(var(--spacing) * 8);
     }
