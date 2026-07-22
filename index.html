@@ -467,14 +467,73 @@
           </div>
 
           <a class="nav-link" href="/catalog/">کاتالوگ</a>
-          <a class="nav-link" href="/about/">درباره ما</a>
+
+          <div class="group relative flex h-full items-center">
+            <!-- Menu Trigger -->
+            <a href="#" class="nav-link" aria-haspopup="true">
+              <span>درباره ما</span>
+            </a>
+
+            <!-- Menu Wrapper -->
+            <div
+              class="pointer-events-none absolute right-0 w-max top-full z-50 translate-y-2 opacity-0 invisible transition-all duration-300 group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100"
+            >
+              <div
+                class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft"
+              >
+                <div class="p-7 xl:p-8">
+                  <div class="grid grid-cols-1">
+                    <div class="px-5 first:pr-0">
+                      <ul class="space-y-1 whitespace-nowrap">
+                        <li>
+                          <a
+                            href="/about/"
+                            class="mega-menu-link block rounded-xl px-4 py-3"
+                          >
+                            درباره کارنیکا
+                          </a>
+                        </li>
+
+                        <li>
+                          <a
+                            href="/about/history/"
+                            class="mega-menu-link block rounded-xl px-4 py-3"
+                          >
+                            تاریخچه
+                          </a>
+                        </li>
+
+                        <li>
+                          <a
+                            href="/about/vision/"
+                            class="mega-menu-link block rounded-xl px-4 py-3"
+                          >
+                            چشم‌انداز
+                          </a>
+                        </li>
+
+                        <li>
+                          <a
+                            href="/about/certificates/"
+                            class="mega-menu-link block rounded-xl px-4 py-3"
+                          >
+                            تقدیرنامه‌ها و گواهینامه‌ها
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <a class="nav-link" href="/news/">اخبار کارنیکا</a>
           <a class="nav-link" href="/contact/">تماس با ما</a>
           <a class="nav-link" href="/blogs/">بلاگ</a>
         </nav>
 
         <div class="hidden items-center gap-2 lg:flex">
-          <!-- جستجو -->
+          <!-- جستجوی محصولات بر اساس دسته بندی -->
           <div class="group relative size-10 shrink-0">
             <div
               class="absolute left-0 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center overflow-hidden rounded-xl border border-white/10 bg-navy transition-all duration-700 ease-out group-hover:w-72 group-focus-within:w-72"
@@ -1006,12 +1065,55 @@
               کاتالوگ
             </a>
 
-            <a
-              class="mobile-nav-link rounded-xl px-4 py-3.5 transition hover:bg-white/10"
-              href="/about/"
-            >
-              درباره ما
-            </a>
+            <!-- About Accordion -->
+            <div>
+              <button
+                type="button"
+                class="mobile-about-trigger flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-right transition hover:bg-white/10"
+                aria-expanded="false"
+                aria-controls="mobileAboutMenu"
+              >
+                <span>درباره ما</span>
+
+                <i
+                  data-lucide="chevron-down"
+                  class="mobile-about-arrow size-4 transition-transform duration-300"
+                ></i>
+              </button>
+
+              <!-- About Content -->
+              <div
+                id="mobileAboutMenu"
+                class="grid max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out"
+              >
+                <div
+                  class="mt-1 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-2"
+                >
+                  <div class="divide-y divide-white/10">
+                    <a
+                      href="./about/"
+                      class="flex items-center px-3 py-3.5 transition hover:bg-white/10"
+                    >
+                      درباره کارنیکا
+                    </a>
+
+                    <a
+                      href="./about/history/"
+                      class="flex items-center px-3 py-3.5 transition hover:bg-white/10"
+                    >
+                      تاریخچه
+                    </a>
+
+                    <a
+                      href="./about/certificates/"
+                      class="flex items-center px-3 py-3.5 transition hover:bg-white/10"
+                    >
+                      تقدیرنامه‌ها و گواهینامه‌ها
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <a
               class="mobile-nav-link rounded-xl px-4 py-3.5 transition hover:bg-white/10"

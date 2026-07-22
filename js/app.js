@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   lucide.createIcons();
 
   // Menu
-
   const menuBtn = document.querySelector("#menuBtn");
   const mobileMenu = document.querySelector("#mobileMenu");
   const mobileMenuClose = document.querySelector("#mobileMenuClose");
@@ -53,8 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
       closeMobileMenu();
     }
   });
-
-  // Mega-Menu
 
   // Hero-Swiper
   new Swiper(".heroSwiper", {
@@ -373,4 +370,18 @@ mobileCategories.forEach((category) => {
       openAccordion(content, trigger, arrow);
     }
   });
+});
+// Mobile About Accordion
+const mobileAboutTrigger = document.querySelector(".mobile-about-trigger");
+const mobileAboutMenu = document.querySelector("#mobileAboutMenu");
+const mobileAboutArrow = document.querySelector(".mobile-about-arrow");
+
+mobileAboutTrigger?.addEventListener("click", () => {
+  const isOpen = mobileAboutTrigger.getAttribute("aria-expanded") === "true";
+
+  if (isOpen) {
+    closeAccordion(mobileAboutMenu, mobileAboutTrigger, mobileAboutArrow);
+  } else {
+    openAccordion(mobileAboutMenu, mobileAboutTrigger, mobileAboutArrow);
+  }
 });
