@@ -533,24 +533,161 @@
         </nav>
 
         <div class="hidden items-center gap-2 lg:flex">
-          <!-- جستجوی محصولات بر اساس دسته بندی -->
-          <div class="group relative size-10 shrink-0">
+          <!-- جستجوی محصولات بر اساس دسته‌بندی -->
+          <div
+            id="desktopProductSearch"
+            class="group relative size-10 shrink-0"
+          >
+            <!-- Search box -->
             <div
-              class="absolute left-0 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center overflow-hidden rounded-xl border border-white/10 bg-navy transition-all duration-700 ease-out group-hover:w-72 group-focus-within:w-72"
+              class="absolute left-0 top-1/2 z-50 flex h-10 w-10 -translate-y-1/2 items-center overflow-hidden rounded-xl border border-white/10 bg-navy shadow-lg transition-all duration-500 ease-out group-hover:w-72 group-focus-within:w-72"
             >
               <button
+                id="desktopSearchButton"
                 type="button"
-                aria-label="جستجو"
+                aria-label="جستجوی محصولات"
                 class="grid size-10 shrink-0 place-items-center text-white transition hover:bg-white/10"
               >
                 <i data-lucide="search" class="size-4"></i>
               </button>
 
               <input
+                id="desktopProductSearchInput"
                 type="search"
                 placeholder="جستجوی محصولات ..."
-                class="min-w-0 flex-1 bg-transparent px-0 text-sm text-white opacity-0 outline-none placeholder:text-white/60 transition-all duration-700 group-hover:px-3 group-hover:opacity-100 group-focus-within:px-3 group-focus-within:opacity-100"
+                autocomplete="off"
+                aria-label="نام محصول را وارد کنید"
+                class="min-w-0 flex-1 bg-transparent px-0 text-sm text-white opacity-0 outline-none placeholder:text-white/60 transition-all duration-500 group-hover:px-3 group-hover:opacity-100 group-focus-within:px-3 group-focus-within:opacity-100"
               />
+
+              <button
+                id="desktopSearchClear"
+                type="button"
+                aria-label="پاک‌کردن جستجو"
+                class="hidden size-9 shrink-0 place-items-center text-white/60 transition hover:text-white"
+              >
+                <i data-lucide="x" class="size-4"></i>
+              </button>
+            </div>
+
+            <!-- Search results -->
+            <div
+              id="desktopSearchResults"
+              class="invisible absolute left-0 top-[calc(100%+28px)] z-40 w-80 translate-y-2 overflow-hidden rounded-2xl border border-slate-200 bg-white opacity-0 shadow-[0_20px_50px_rgba(7,29,60,0.18)] transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+            >
+              <!-- Results header -->
+              <div
+                class="flex items-center justify-between border-b border-slate-100 px-4 py-3"
+              >
+                <span class="text-xs font-extrabold text-navy">
+                  محصولات پیشنهادی
+                </span>
+
+                <span
+                  class="rounded-full bg-brand/10 px-2 py-1 text-[10px] font-bold text-brand"
+                >
+                  ۳ محصول
+                </span>
+              </div>
+
+              <!-- Static results -->
+              <div class="max-h-80 overflow-y-auto p-2">
+                <!-- Result 1 -->
+                <a
+                  href="./products/stretch-film.html"
+                  class="group/item flex items-center gap-3 rounded-xl p-2.5 transition hover:bg-slate-50"
+                >
+                  <img
+                    src="./assets/images/products/stretch-film.avif"
+                    alt="نایلون استرچ"
+                    class="size-12 shrink-0 rounded-lg bg-slate-100 object-cover"
+                  />
+
+                  <div class="min-w-0 flex-1">
+                    <h3
+                      class="truncate text-xs font-extrabold text-navy transition group-hover/item:text-brand"
+                    >
+                      نایلون استرچ
+                    </h3>
+
+                    <p class="mt-1 truncate text-[11px] text-slate-500">
+                      محصولات بسته‌بندی
+                    </p>
+                  </div>
+
+                  <i
+                    data-lucide="chevron-left"
+                    class="size-4 shrink-0 text-slate-300 transition group-hover/item:text-brand"
+                  ></i>
+                </a>
+
+                <!-- Result 2 -->
+                <a
+                  href="./products/greenhouse-film.html"
+                  class="group/item flex items-center gap-3 rounded-xl p-2.5 transition hover:bg-slate-50"
+                >
+                  <img
+                    src="./assets/images/products/greenhouse-film.avif"
+                    alt="نایلون گلخانه‌ای"
+                    class="size-12 shrink-0 rounded-lg bg-slate-100 object-cover"
+                  />
+
+                  <div class="min-w-0 flex-1">
+                    <h3
+                      class="truncate text-xs font-extrabold text-navy transition group-hover/item:text-brand"
+                    >
+                      نایلون گلخانه‌ای
+                    </h3>
+
+                    <p class="mt-1 truncate text-[11px] text-slate-500">
+                      محصولات کشاورزی
+                    </p>
+                  </div>
+
+                  <i
+                    data-lucide="chevron-left"
+                    class="size-4 shrink-0 text-slate-300 transition group-hover/item:text-brand"
+                  ></i>
+                </a>
+
+                <!-- Result 3 -->
+                <a
+                  href="./products/industrial-nylon.html"
+                  class="group/item flex items-center gap-3 rounded-xl p-2.5 transition hover:bg-slate-50"
+                >
+                  <img
+                    src="./assets/images/products/industrial-nylon.avif"
+                    alt="نایلون صنعتی"
+                    class="size-12 shrink-0 rounded-lg bg-slate-100 object-cover"
+                  />
+
+                  <div class="min-w-0 flex-1">
+                    <h3
+                      class="truncate text-xs font-extrabold text-navy transition group-hover/item:text-brand"
+                    >
+                      نایلون صنعتی
+                    </h3>
+
+                    <p class="mt-1 truncate text-[11px] text-slate-500">
+                      محصولات صنعتی
+                    </p>
+                  </div>
+
+                  <i
+                    data-lucide="chevron-left"
+                    class="size-4 shrink-0 text-slate-300 transition group-hover/item:text-brand"
+                  ></i>
+                </a>
+              </div>
+
+              <!-- Footer -->
+              <a
+                href="./products.html"
+                class="flex items-center justify-center gap-2 border-t border-slate-100 px-4 py-3 text-xs font-extrabold text-navy transition hover:bg-slate-50 hover:text-brand"
+              >
+                مشاهده همه محصولات
+                <i data-lucide="arrow-left" class="size-4"></i>
+              </a>
             </div>
           </div>
           <!-- تماس فوری -->
@@ -612,30 +749,143 @@
         </div>
 
         <!-- Mobile Search -->
-        <form
-          action="#"
-          role="search"
-          class="shrink-0 border-b border-white/10 px-4 py-4"
-        >
-          <div
-            class="flex h-12 items-center overflow-hidden rounded-xl border border-white/10 bg-white/5 transition focus-within:border-white/25 focus-within:bg-white/10"
-          >
-            <button
-              type="submit"
-              class="grid size-12 shrink-0 place-items-center text-white"
-              aria-label="جستجو"
+        <div class="group shrink-0 border-b border-white/10 px-4 py-4">
+          <form action="./products.html" role="search">
+            <div
+              class="flex h-12 items-center overflow-hidden rounded-xl border border-white/10 bg-white/5 transition focus-within:border-white/25 focus-within:bg-white/10"
             >
-              <i data-lucide="search" class="size-4"></i>
-            </button>
+              <button
+                type="submit"
+                class="grid size-12 shrink-0 place-items-center text-white"
+                aria-label="جستجو"
+              >
+                <i data-lucide="search" class="size-4"></i>
+              </button>
 
-            <input
-              type="search"
-              name="search"
-              placeholder="جستجوی محصولات ..."
-              class="h-full min-w-0 flex-1 bg-transparent pl-4 pr-0 text-sm text-white outline-none placeholder:text-white/50"
-            />
+              <input
+                type="search"
+                name="search"
+                autocomplete="off"
+                aria-label="جستجوی محصولات"
+                placeholder="جستجوی محصولات ..."
+                class="h-full min-w-0 flex-1 bg-transparent pl-4 pr-0 text-sm text-white outline-none placeholder:text-white/50"
+              />
+            </div>
+          </form>
+
+          <!-- Mobile Search Results -->
+          <div
+            class="invisible mt-0 max-h-0 translate-y-2 overflow-hidden rounded-2xl border border-white/10 bg-white/5 opacity-0 transition-all duration-300 group-focus-within:visible group-focus-within:mt-3 group-focus-within:max-h-96 group-focus-within:translate-y-0 group-focus-within:opacity-100"
+          >
+            <!-- Results Header -->
+            <div
+              class="flex items-center justify-between border-b border-white/10 px-3 py-3"
+            >
+              <span class="text-xs font-extrabold text-white">
+                محصولات پیشنهادی
+              </span>
+
+              <span
+                class="rounded-full bg-brand/20 px-2 py-1 text-[10px] font-bold text-red-300"
+              >
+                ۳ محصول
+              </span>
+            </div>
+
+            <!-- Results List -->
+            <div class="max-h-64 space-y-1 overflow-y-auto p-2">
+              <!-- Result 1 -->
+              <a
+                href="./products/stretch-film.html"
+                class="group flex items-center gap-3 rounded-xl p-2 transition hover:bg-white/10"
+              >
+                <img
+                  src="./assets/images/products/stretch-film.avif"
+                  alt="نایلون استرچ"
+                  class="size-12 shrink-0 rounded-lg bg-white object-contain"
+                />
+
+                <div class="min-w-0 flex-1">
+                  <h3 class="truncate text-xs font-extrabold text-white">
+                    نایلون استرچ
+                  </h3>
+
+                  <p class="mt-1 truncate text-[11px] text-white/50">
+                    محصولات بسته‌بندی
+                  </p>
+                </div>
+
+                <i
+                  data-lucide="chevron-left"
+                  class="size-4 shrink-0 text-white/30 transition group-hover:text-white"
+                ></i>
+              </a>
+
+              <!-- Result 2 -->
+              <a
+                href="./products/greenhouse-film.html"
+                class="group flex items-center gap-3 rounded-xl p-2 transition hover:bg-white/10"
+              >
+                <img
+                  src="./assets/images/products/greenhouse-film.avif"
+                  alt="نایلون گلخانه‌ای"
+                  class="size-12 shrink-0 rounded-lg bg-white object-contain"
+                />
+
+                <div class="min-w-0 flex-1">
+                  <h3 class="truncate text-xs font-extrabold text-white">
+                    نایلون گلخانه‌ای
+                  </h3>
+
+                  <p class="mt-1 truncate text-[11px] text-white/50">
+                    محصولات کشاورزی
+                  </p>
+                </div>
+
+                <i
+                  data-lucide="chevron-left"
+                  class="size-4 shrink-0 text-white/30 transition group-hover:text-white"
+                ></i>
+              </a>
+
+              <!-- Result 3 -->
+              <a
+                href="./products/industrial-nylon.html"
+                class="group flex items-center gap-3 rounded-xl p-2 transition hover:bg-white/10"
+              >
+                <img
+                  src="./assets/images/products/industrial-nylon.avif"
+                  alt="نایلون صنعتی"
+                  class="size-12 shrink-0 rounded-lg bg-white object-contain"
+                />
+
+                <div class="min-w-0 flex-1">
+                  <h3 class="truncate text-xs font-extrabold text-white">
+                    نایلون صنعتی
+                  </h3>
+
+                  <p class="mt-1 truncate text-[11px] text-white/50">
+                    محصولات صنعتی
+                  </p>
+                </div>
+
+                <i
+                  data-lucide="chevron-left"
+                  class="size-4 shrink-0 text-white/30 transition group-hover:text-white"
+                ></i>
+              </a>
+            </div>
+
+            <!-- Results Footer -->
+            <a
+              href="./products.html"
+              class="flex items-center justify-center gap-2 border-t border-white/10 px-4 py-3 text-xs font-extrabold text-white transition hover:bg-white/10"
+            >
+              مشاهده همه محصولات
+              <i data-lucide="arrow-left" class="size-4"></i>
+            </a>
           </div>
-        </form>
+        </div>
 
         <!-- Navigation Mobile -->
         <nav class="flex-1 overflow-y-auto px-4 py-5 text-sm font-bold">
@@ -2576,5 +2826,6 @@
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="./assets/js/lucide.min.js"></script>
     <script src="./js/app.js"></script>
+    <script src="./js/header.js"></script>
   </body>
 </html>
