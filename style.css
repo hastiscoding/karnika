@@ -67,18 +67,6 @@ body {
   vertical-align: middle;
 }
 
-.product-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 28%,
-    rgba(4, 20, 43, 0.9) 100%
-  );
-  z-index: 1;
-}
-
 .nav-link::after {
   content: "";
   display: block;
