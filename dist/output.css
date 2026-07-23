@@ -1531,6 +1531,9 @@
     }
   }
   @media (hover: hover) {
+    .hover\:border-brand:hover {
+      border-color: var(--color-brand);
+    }
     .hover\:border-brand\/30:hover {
       border-color: color-mix(in srgb, #e31d2b 30%, transparent);
     }
@@ -1589,6 +1592,20 @@
   }
   .focus\:border-brand:focus {
     border-color: var(--color-brand);
+  }
+  .disabled\:cursor-not-allowed:disabled {
+    cursor: not-allowed;
+  }
+  .disabled\:opacity-40:disabled {
+    opacity: 40%;
+  }
+  @media (hover: hover) {
+    .disabled\:hover\:border-slate-200:disabled:hover {
+      border-color: var(--color-slate-200);
+    }
+    .disabled\:hover\:text-navy:disabled:hover {
+      color: var(--color-navy);
+    }
   }
   @media (width >= 40rem) {
     .sm\:top-8 {
