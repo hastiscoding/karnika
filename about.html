@@ -1708,19 +1708,7 @@
     </footer>
 
     <script src="../assets/js/lucide.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        if (window.lucide) lucide.createIcons();
-
-        const menuBtn = document.querySelector("#menuBtn");
-        const mobileMenu = document.querySelector("#mobileMenu");
-
-        menuBtn?.addEventListener("click", () => {
-          const isOpen = !mobileMenu.classList.contains("hidden");
-          mobileMenu.classList.toggle("hidden");
-          menuBtn.setAttribute("aria-expanded", String(!isOpen));
-        });
-      });
-    </script>
+    <script src="../js/app.js"></script>
+    <script src="../js/header.js"></script>
   </body>
 </html>
