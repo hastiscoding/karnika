@@ -19,6 +19,9 @@
     <!-- Favicon -->
     <link rel="icon" href="../assets/images/favicon.ico" />
 
+    <!-- Swiper -->
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css" />
+
     <!-- Compiled Tailwind CSS -->
     <link rel="stylesheet" href="../../dist/output.css" />
   </head>
@@ -1437,12 +1440,6 @@
           <!-- Product Information -->
           <div class="order-2 min-w-0 lg:order-1">
             <header class="mb-6 md:mb-7">
-              <span
-                class="mb-2.5 block text-sm font-medium text-brand sm:text-base"
-              >
-                محصولات کشاورزی
-              </span>
-
               <h1
                 class="mb-3 text-3xl font-extrabold leading-[1.4] text-navy sm:text-4xl lg:text-5xl xl:text-[58px]"
               >
@@ -1537,68 +1534,126 @@
 
           <!-- Product Gallery -->
           <div class="order-1 min-w-0 lg:order-2">
-            <div
-              class="aspect-[1.25/1] overflow-hidden rounded-2xl bg-slate-100 sm:aspect-[1.72/1]"
-            >
-              <img
-                id="mainProductImage"
-                src="../assets/images/products/greenhouse-film.avif"
-                alt="رول نایلون عریض گلخانه‌ای"
-                class="h-full w-full object-cover transition-opacity duration-200"
-              />
+            <!-- Main Gallery Slider -->
+            <div class="group relative">
+              <div
+                class="productGallerySwiper swiper aspect-[1.25/1] overflow-hidden rounded-2xl bg-slate-100 sm:aspect-[1.72/1]"
+              >
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img
+                      src="../assets/images/products/greenhouse-film.avif"
+                      alt="رول نایلون عریض گلخانه‌ای"
+                      class="h-full w-full object-cover"
+                    />
+                  </div>
+
+                  <div class="swiper-slide">
+                    <img
+                      src="../assets/images/products/greenhouse-film-2.avif"
+                      alt="پوشش نایلونی گلخانه"
+                      class="h-full w-full object-cover"
+                    />
+                  </div>
+
+                  <div class="swiper-slide">
+                    <img
+                      src="../assets/images/products/greenhouse-film-3.avif"
+                      alt="نایلون عریض کشاورزی"
+                      class="h-full w-full object-cover"
+                    />
+                  </div>
+
+                  <div class="swiper-slide">
+                    <img
+                      src="../assets/images/products/greenhouse-film-4.avif"
+                      alt="رول پلاستیک گلخانه‌ای کارنیکا"
+                      class="h-full w-full object-cover"
+                    />
+                  </div>
+
+                  <div class="swiper-slide">
+                    <img
+                      src="../assets/images/products/greenhouse-film.avif"
+                      alt="رول نایلون عریض گلخانه‌ای"
+                      class="h-full w-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Gallery Navigation -->
+              <button
+                type="button"
+                class="product-gallery-next absolute left-3 top-1/2 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-navy shadow-md transition hover:bg-brand hover:text-white sm:left-4 sm:size-11"
+                aria-label="تصویر بعدی"
+              >
+                <i data-lucide="chevron-left" class="size-5"></i>
+              </button>
+
+              <button
+                type="button"
+                class="product-gallery-prev absolute right-3 top-1/2 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-navy shadow-md transition hover:bg-brand hover:text-white sm:right-4 sm:size-11"
+                aria-label="تصویر قبلی"
+              >
+                <i data-lucide="chevron-right" class="size-5"></i>
+              </button>
             </div>
 
-            <div class="mt-4 flex justify-center gap-2.5 sm:gap-3">
-              <button
-                type="button"
-                class="product-thumb h-16 w-24 overflow-hidden rounded-xl border-2 border-[#e31d2b] bg-slate-100 transition duration-200 hover:opacity-80 sm:h-[78px] sm:w-[120px]"
-                data-image="../assets/images/products/greenhouse-film.avif"
-                aria-label="مشاهده تصویر اول محصول"
-              >
-                <img
-                  src="../assets/images/products/greenhouse-film.avif"
-                  alt=""
-                  class="h-full w-full object-cover"
-                />
-              </button>
+            <!-- Gallery Thumbnails -->
+            <div
+              class="productGalleryThumbs swiper mt-4 [&_.swiper-slide-thumb-active]:border-brand"
+            >
+              <div class="swiper-wrapper">
+                <div
+                  class="swiper-slide cursor-pointer overflow-hidden rounded-xl border-2 border-transparent bg-slate-100 transition hover:opacity-80"
+                >
+                  <img
+                    src="../assets/images/products/greenhouse-film.avif"
+                    alt="تصویر کوچک اول نایلون گلخانه‌ای"
+                    class="h-16 w-full object-cover sm:h-[78px]"
+                  />
+                </div>
 
-              <button
-                type="button"
-                class="product-thumb h-16 w-24 overflow-hidden rounded-xl border-2 border-transparent bg-slate-100 transition duration-200 hover:opacity-80 sm:h-[78px] sm:w-[120px]"
-                data-image="../assets/images/products/greenhouse-film-2.avif"
-                aria-label="مشاهده تصویر دوم محصول"
-              >
-                <img
-                  src="../assets/images/products/greenhouse-film-2.avif"
-                  alt=""
-                  class="h-full w-full object-cover"
-                />
-              </button>
+                <div
+                  class="swiper-slide cursor-pointer overflow-hidden rounded-xl border-2 border-transparent bg-slate-100 transition hover:opacity-80"
+                >
+                  <img
+                    src="../assets/images/products/greenhouse-film-2.avif"
+                    alt="تصویر کوچک دوم نایلون گلخانه‌ای"
+                    class="h-16 w-full object-cover sm:h-[78px]"
+                  />
+                </div>
 
-              <button
-                type="button"
-                class="product-thumb h-16 w-24 overflow-hidden rounded-xl border-2 border-transparent bg-slate-100 transition duration-200 hover:opacity-80 sm:h-[78px] sm:w-[120px]"
-                data-image="../assets/images/products/greenhouse-film-3.avif"
-                aria-label="مشاهده تصویر سوم محصول"
-              >
-                <img
-                  src="../assets/images/products/greenhouse-film-3.avif"
-                  alt=""
-                  class="h-full w-full object-cover"
-                />
-              </button>
-              <button
-                type="button"
-                class="product-thumb h-16 w-24 overflow-hidden rounded-xl border-2 border-transparent bg-slate-100 transition duration-200 hover:opacity-80 sm:h-[78px] sm:w-[120px]"
-                data-image="../assets/images/products/greenhouse-film-4.avif"
-                aria-label="مشاهده تصویر چهارم محصول"
-              >
-                <img
-                  src="../assets/images/products/greenhouse-film-4.avif"
-                  alt=""
-                  class="h-full w-full object-cover"
-                />
-              </button>
+                <div
+                  class="swiper-slide cursor-pointer overflow-hidden rounded-xl border-2 border-transparent bg-slate-100 transition hover:opacity-80"
+                >
+                  <img
+                    src="../assets/images/products/greenhouse-film-3.avif"
+                    alt="تصویر کوچک سوم نایلون گلخانه‌ای"
+                    class="h-16 w-full object-cover sm:h-[78px]"
+                  />
+                </div>
+
+                <div
+                  class="swiper-slide cursor-pointer overflow-hidden rounded-xl border-2 border-transparent bg-slate-100 transition hover:opacity-80"
+                >
+                  <img
+                    src="../assets/images/products/greenhouse-film-4.avif"
+                    alt="تصویر کوچک چهارم نایلون گلخانه‌ای"
+                    class="h-16 w-full object-cover sm:h-[78px]"
+                  />
+                </div>
+                <div
+                  class="swiper-slide cursor-pointer overflow-hidden rounded-xl border-2 border-transparent bg-slate-100 transition hover:opacity-80"
+                >
+                  <img
+                    src="../assets/images/products/greenhouse-film.avif"
+                    alt="تصویر کوچک اول نایلون گلخانه‌ای"
+                    class="h-16 w-full object-cover sm:h-[78px]"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -1661,203 +1716,258 @@
 
         <!-- Related Products -->
         <section class="pb-6 pt-7 sm:pb-8 sm:pt-9">
-          <div class="mb-5 flex items-center gap-3 sm:gap-4">
-            <span class="h-[3px] w-8 rounded-full bg-brand sm:w-10"></span>
-            <h2 class="text-xl font-extrabold text-navy sm:text-2xl">
-              محصولات مرتبط
-            </h2>
+          <div class="mb-5 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3 sm:gap-4">
+              <span class="h-[3px] w-8 rounded-full bg-brand sm:w-10"></span>
+              <h2 class="text-xl font-extrabold text-navy sm:text-2xl">
+                محصولات مرتبط
+              </h2>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                class="related-products-prev flex size-10 items-center justify-center rounded-full bg-slate-200 text-navy transition hover:border-navy hover:bg-navy hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+                aria-label="محصول قبلی"
+              >
+                <i data-lucide="chevron-right" class="size-5"></i>
+              </button>
+              <button
+                type="button"
+                class="related-products-next flex size-10 items-center justify-center rounded-full bg-slate-200 text-navy transition hover:border-navy hover:bg-navy hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+                aria-label="محصول بعدی"
+              >
+                <i data-lucide="chevron-left" class="size-5"></i>
+              </button>
+            </div>
           </div>
 
-          <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
-            <article
-              data-category="household"
-              data-title="سفره یکبار مصرف"
-              data-order="1"
-              class="product-card group overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300"
-            >
-              <a
-                href="./disposable-tablecloth.html"
-                class="block overflow-hidden bg-[#f1f2f3]"
+          <div class="relatedProductsSwiper swiper overflow-hidden">
+            <div class="swiper-wrapper">
+              <!-- Product 1 -->
+              <article
+                data-category="household"
+                data-title="سفره یکبار مصرف"
+                data-order="1"
+                class="product-card swiper-slide group h-auto overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300"
               >
-                <img
-                  src="../assets/images/products/disposable-tablecloth-roll.avif"
-                  alt="سفره یکبار مصرف"
-                  class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </a>
-
-              <div class="p-5">
-                <span class="text-xs font-bold text-navy">محصولات خانگی</span>
-
-                <h2 class="mt-2 text-lg font-black text-navy">
-                  <a
-                    href="./disposable-tablecloth.html"
-                    class="transition hover:text-brand"
-                  >
-                    سفره یکبار مصرف
-                  </a>
-                </h2>
-
-                <p class="mt-2 line-clamp-2 text-sm leading-7 text-slate-500">
-                  مناسب مصارف خانگی، مهمانی‌ها و بسته‌بندی بهداشتی مواد غذایی.
-                </p>
-
                 <a
-                  href="./disposable-tablecloth.html"
-                  class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand transition"
+                  href="product.html"
+                  class="block overflow-hidden bg-[#f1f2f3]"
                 >
-                  مشاهده محصول
-                  <i
-                    data-lucide="arrow-left"
-                    class="size-4 transition-transform group-hover:-translate-x-1"
-                  ></i>
+                  <img
+                    src="../assets/images/products/disposable-tablecloth-roll.avif"
+                    alt="سفره یکبار مصرف"
+                    class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 </a>
-              </div>
-            </article>
 
-            <article
-              data-category="household"
-              data-title="دستکش یکبار مصرف"
-              data-order="2"
-              class="product-card group overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300"
-            >
-              <a
-                href="./disposable-gloves.html"
-                class="block overflow-hidden bg-[#f1f2f3]"
+                <div class="p-5">
+                  <span class="text-xs font-bold text-navy">محصولات خانگی</span>
+
+                  <h2 class="mt-2 text-lg font-black text-navy">
+                    <a href="product.html" class="transition hover:text-brand">
+                      سفره یکبار مصرف
+                    </a>
+                  </h2>
+
+                  <p class="mt-2 line-clamp-2 text-sm leading-7 text-slate-500">
+                    مناسب مصارف خانگی، مهمانی‌ها و بسته‌بندی بهداشتی مواد غذایی.
+                  </p>
+
+                  <a
+                    href="product.html"
+                    class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand transition"
+                  >
+                    مشاهده محصول
+                    <i
+                      data-lucide="arrow-left"
+                      class="size-4 transition-transform group-hover:-translate-x-1"
+                    ></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Product 2 -->
+              <article
+                data-category="household"
+                data-title="دستکش یکبار مصرف"
+                data-order="2"
+                class="product-card swiper-slide group h-auto overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300"
               >
-                <img
-                  src="../assets/images/products/disposable-gloves.avif"
-                  alt="دستکش یکبار مصرف"
-                  class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </a>
-
-              <div class="p-5">
-                <span class="text-xs font-bold text-navy">محصولات خانگی</span>
-
-                <h2 class="mt-2 text-lg font-black text-navy">
-                  <a
-                    href="./disposable-gloves.html"
-                    class="transition hover:text-brand"
-                  >
-                    دستکش یکبار مصرف
-                  </a>
-                </h2>
-
-                <p class="mt-2 line-clamp-2 text-sm leading-7 text-slate-500">
-                  سبک، بهداشتی و مناسب آشپزی، نظافت و استفاده‌های روزمره.
-                </p>
-
                 <a
-                  href="./disposable-gloves.html"
-                  class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand transition"
+                  href="product.html"
+                  class="block overflow-hidden bg-[#f1f2f3]"
                 >
-                  مشاهده محصول
-                  <i
-                    data-lucide="arrow-left"
-                    class="size-4 transition-transform group-hover:-translate-x-1"
-                  ></i>
+                  <img
+                    src="../assets/images/products/disposable-gloves.avif"
+                    alt="دستکش یکبار مصرف"
+                    class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 </a>
-              </div>
-            </article>
 
-            <!-- Product 3 -->
-            <article
-              data-category="industrial"
-              data-title="نایلون شیرینک صنعتی برشی"
-              data-order="3"
-              class="product-card group overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300"
-            >
-              <a
-                href="./industrial-cut-shrink-nylon.html"
-                class="block overflow-hidden bg-[#f1f2f3]"
+                <div class="p-5">
+                  <span class="text-xs font-bold text-navy">محصولات خانگی</span>
+
+                  <h2 class="mt-2 text-lg font-black text-navy">
+                    <a href="product.html" class="transition hover:text-brand">
+                      دستکش یکبار مصرف
+                    </a>
+                  </h2>
+
+                  <p class="mt-2 line-clamp-2 text-sm leading-7 text-slate-500">
+                    سبک، بهداشتی و مناسب آشپزی، نظافت و استفاده‌های روزمره.
+                  </p>
+
+                  <a
+                    href="product.html"
+                    class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand transition"
+                  >
+                    مشاهده محصول
+                    <i
+                      data-lucide="arrow-left"
+                      class="size-4 transition-transform group-hover:-translate-x-1"
+                    ></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Product 3 -->
+              <article
+                data-category="industrial"
+                data-title="نایلون شیرینک صنعتی برشی"
+                data-order="3"
+                class="product-card swiper-slide group h-auto overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300"
               >
-                <img
-                  src="../assets/images/products/industrial-cut-shrink-nylon.avif"
-                  alt="نایلون شیرینک صنعتی برشی"
-                  class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </a>
-
-              <div class="p-5">
-                <span class="text-xs font-bold text-navy">محصولات صنعتی</span>
-
-                <h2 class="mt-2 text-lg font-black text-navy">
-                  <a
-                    href="./industrial-cut-shrink-nylon.html"
-                    class="transition hover:text-brand"
-                  >
-                    نایلون شیرینک صنعتی برشی
-                  </a>
-                </h2>
-
-                <p class="mt-2 line-clamp-2 text-sm leading-7 text-slate-500">
-                  برش‌خورده و آماده مصرف برای بسته‌بندی منظم محصولات صنعتی.
-                </p>
-
                 <a
-                  href="./industrial-cut-shrink-nylon.html"
-                  class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand transition"
+                  href="product.html"
+                  class="block overflow-hidden bg-[#f1f2f3]"
                 >
-                  مشاهده محصول
-                  <i
-                    data-lucide="arrow-left"
-                    class="size-4 transition-transform group-hover:-translate-x-1"
-                  ></i>
+                  <img
+                    src="../assets/images/products/industrial-cut-shrink-nylon.avif"
+                    alt="نایلون شیرینک صنعتی برشی"
+                    class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 </a>
-              </div>
-            </article>
 
-            <!-- Product 4 -->
-            <article
-              data-category="industrial"
-              data-title="کیسه زباله صنعتی مشکی"
-              data-order="4"
-              class="product-card group overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300"
-            >
-              <a
-                href="./black-industrial-garbage-bag.html"
-                class="block overflow-hidden bg-[#f1f2f3]"
+                <div class="p-5">
+                  <span class="text-xs font-bold text-navy">محصولات صنعتی</span>
+
+                  <h2 class="mt-2 text-lg font-black text-navy">
+                    <a href="product.html" class="transition hover:text-brand">
+                      نایلون شیرینک صنعتی برشی
+                    </a>
+                  </h2>
+
+                  <p class="mt-2 line-clamp-2 text-sm leading-7 text-slate-500">
+                    برش‌خورده و آماده مصرف برای بسته‌بندی منظم محصولات صنعتی.
+                  </p>
+
+                  <a
+                    href="product.html"
+                    class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand transition"
+                  >
+                    مشاهده محصول
+                    <i
+                      data-lucide="arrow-left"
+                      class="size-4 transition-transform group-hover:-translate-x-1"
+                    ></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Product 4 -->
+              <article
+                data-category="industrial"
+                data-title="کیسه زباله صنعتی مشکی"
+                data-order="4"
+                class="product-card swiper-slide group h-auto overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300"
               >
-                <img
-                  src="../assets/images/products/black-industrial-garbage-bag.avif"
-                  alt="کیسه زباله صنعتی مشکی"
-                  class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </a>
-
-              <div class="p-5">
-                <span class="text-xs font-bold text-navy">محصولات صنعتی</span>
-
-                <h2 class="mt-2 text-lg font-black text-navy">
-                  <a
-                    href="./black-industrial-garbage-bag.html"
-                    class="transition hover:text-brand"
-                  >
-                    کیسه زباله صنعتی مشکی
-                  </a>
-                </h2>
-
-                <p class="mt-2 line-clamp-2 text-sm leading-7 text-slate-500">
-                  ضخیم، جادار و مقاوم برای جمع‌آوری پسماندهای صنعتی و سنگین.
-                </p>
-
                 <a
-                  href="./black-industrial-garbage-bag.html"
-                  class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand transition"
+                  href="product.html"
+                  class="block overflow-hidden bg-[#f1f2f3]"
                 >
-                  مشاهده محصول
-                  <i
-                    data-lucide="arrow-left"
-                    class="size-4 transition-transform group-hover:-translate-x-1"
-                  ></i>
+                  <img
+                    src="../assets/images/products/black-industrial-garbage-bag.avif"
+                    alt="کیسه زباله صنعتی مشکی"
+                    class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 </a>
-              </div>
-            </article>
+
+                <div class="p-5">
+                  <span class="text-xs font-bold text-navy">محصولات صنعتی</span>
+
+                  <h2 class="mt-2 text-lg font-black text-navy">
+                    <a href="product.html" class="transition hover:text-brand">
+                      کیسه زباله صنعتی مشکی
+                    </a>
+                  </h2>
+
+                  <p class="mt-2 line-clamp-2 text-sm leading-7 text-slate-500">
+                    ضخیم، جادار و مقاوم برای جمع‌آوری پسماندهای صنعتی و سنگین.
+                  </p>
+
+                  <a
+                    href="product.html"
+                    class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand transition"
+                  >
+                    مشاهده محصول
+                    <i
+                      data-lucide="arrow-left"
+                      class="size-4 transition-transform group-hover:-translate-x-1"
+                    ></i>
+                  </a>
+                </div>
+              </article>
+              <!-- Product 5 -->
+              <article
+                data-category="industrial"
+                data-title="کیسه زباله صنعتی مشکی"
+                data-order="4"
+                class="product-card swiper-slide group h-auto overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300"
+              >
+                <a
+                  href="product.html"
+                  class="block overflow-hidden bg-[#f1f2f3]"
+                >
+                  <img
+                    src="../assets/images/products/black-industrial-garbage-bag.avif"
+                    alt="کیسه زباله صنعتی مشکی"
+                    class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </a>
+
+                <div class="p-5">
+                  <span class="text-xs font-bold text-navy">محصولات صنعتی</span>
+
+                  <h2 class="mt-2 text-lg font-black text-navy">
+                    <a href="product.html" class="transition hover:text-brand">
+                      کیسه زباله صنعتی مشکی
+                    </a>
+                  </h2>
+
+                  <p class="mt-2 line-clamp-2 text-sm leading-7 text-slate-500">
+                    ضخیم، جادار و مقاوم برای جمع‌آوری پسماندهای صنعتی و سنگین.
+                  </p>
+
+                  <a
+                    href="product.html"
+                    class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand transition"
+                  >
+                    مشاهده محصول
+                    <i
+                      data-lucide="arrow-left"
+                      class="size-4 transition-transform group-hover:-translate-x-1"
+                    ></i>
+                  </a>
+                </div>
+              </article>
+            </div>
           </div>
         </section>
       </div>
@@ -1934,6 +2044,8 @@
       </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="../assets/js/lucide.min.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/header.js"></script>
@@ -1941,26 +2053,57 @@
       document.addEventListener("DOMContentLoaded", () => {
         lucide.createIcons();
 
-        const mainImage = document.querySelector("#mainProductImage");
-        const thumbs = document.querySelectorAll(".product-thumb");
+        const productGalleryThumbs = new Swiper(".productGalleryThumbs", {
+          spaceBetween: 10,
+          slidesPerView: 3,
+          watchSlidesProgress: true,
+          breakpoints: {
+            640: {
+              slidesPerView: 4,
+              spaceBetween: 12,
+            },
+          },
+        });
 
-        thumbs.forEach((thumb) => {
-          thumb.addEventListener("click", () => {
-            mainImage.classList.add("opacity-40");
+        new Swiper(".productGallerySwiper", {
+          spaceBetween: 12,
+          speed: 500,
+          grabCursor: true,
+          keyboard: {
+            enabled: true,
+          },
+          navigation: {
+            nextEl: ".product-gallery-next",
+            prevEl: ".product-gallery-prev",
+          },
+          thumbs: {
+            swiper: productGalleryThumbs,
+          },
+        });
 
-            setTimeout(() => {
-              mainImage.src = thumb.dataset.image;
-              mainImage.classList.remove("opacity-40");
-            }, 180);
-
-            thumbs.forEach((item) => {
-              item.classList.remove("border-[#e31d2b]");
-              item.classList.add("border-transparent");
-            });
-
-            thumb.classList.remove("border-transparent");
-            thumb.classList.add("border-[#e31d2b]");
-          });
+        new Swiper(".relatedProductsSwiper", {
+          slidesPerView: 1.12,
+          spaceBetween: 16,
+          speed: 500,
+          grabCursor: true,
+          watchOverflow: true,
+          keyboard: {
+            enabled: true,
+          },
+          navigation: {
+            nextEl: ".related-products-next",
+            prevEl: ".related-products-prev",
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+            },
+          },
         });
       });
     </script>
